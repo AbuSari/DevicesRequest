@@ -1,0 +1,75 @@
+﻿@model DevicesRequest.Models.Shipment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Shipment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.NameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.NameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PoRceived.CompanyNameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PoRceived.CompanyNameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

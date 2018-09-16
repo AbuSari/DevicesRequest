@@ -11,17 +11,12 @@ namespace DevicesRequest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public RequestItem()
         {
-            Reports = new HashSet<Report>();
+            TechnicianReports = new HashSet<TechnicianReport>();
         }
 
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Display(Name = "Item")]
         public int ItemId { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "User")]
         public int UserId { get; set; }
 
@@ -33,33 +28,34 @@ namespace DevicesRequest.Models
 
         [Display(Name = "Stutus")]
         public int? StutusId { get; set; }
-        public virtual RequestStatu RequestStatu { get; set; }
 
-
-        [Display(Name = "Type Of Reques")]
+        [Display(Name = "Type Of Request")]
         public int? TypeOfRequestId { get; set; }
-        public virtual TypeOfRequest TypeOfRequest { get; set; }
-
 
         [StringLength(100)]
-        [Display(Name = "Update By")]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Update Date")]
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
-        [StringLength(500)]
         [Display(Name = "Director Recommondation")]
+        [StringLength(500)]
         public string DirectorRecommondation { get; set; }
 
-        [Display(Name = "Item")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int RequestItemsId { get; set; }
+
         public virtual Item Item { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Report> Reports { get; set; }
+        public virtual RequestStatu RequestStatu { get; set; }
 
-
+        public virtual TypeOfRequest TypeOfRequest { get; set; }
 
         public virtual User User { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TechnicianReport> TechnicianReports { get; set; }
     }
 }

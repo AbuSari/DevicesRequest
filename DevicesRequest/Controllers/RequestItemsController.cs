@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class RequestItemsController : Controller
     {
-        private DevicesRequestContext db = new DevicesRequestContext();
+        private DevicesRequestDBContext db = new DevicesRequestDBContext();
 
         // GET: RequestItems
         public ActionResult Index()
@@ -42,7 +42,7 @@ namespace DevicesRequest.Controllers
             ViewBag.ItemId = new SelectList(db.Items, "ItemId", "NameEn");
             ViewBag.StutusId = new SelectList(db.RequestStatus, "RequestStatusId", "NameEn");
             ViewBag.TypeOfRequestId = new SelectList(db.TypeOfRequests, "TypeOfRequestId", "NameEn");
-           // ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr");
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr");
             return View();
         }
 
@@ -51,17 +51,10 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemId,UserId,Quantity,RequestDate,StutusId,TypeOfRequestId,LastUpdateBy,LastUpdateDate,DirectorRecommondation")] RequestItem requestItem)
+        public ActionResult Create([Bind(Include = "RequestItemsId,ItemId,UserId,Quantity,RequestDate,StutusId,TypeOfRequestId,LastUpdateBy,LastUpdateDate,DirectorRecommondation")] RequestItem requestItem)
         {
             if (ModelState.IsValid)
             {
-                string username = User.Identity.Name;
-               // User user = db.Users.Find(username);
-                //if(user.Position.NameEn == "Employee")
-                //{
-                //    requestItem.StutusId = db.RequestStatus.Find("NDA").RequestStatusId;
-                //}
-                requestItem.RequestDate = DateTime.Today; 
                 db.RequestItems.Add(requestItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -98,7 +91,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemId,UserId,Quantity,RequestDate,StutusId,TypeOfRequestId,LastUpdateBy,LastUpdateDate,DirectorRecommondation")] RequestItem requestItem)
+        public ActionResult Edit([Bind(Include = "RequestItemsId,ItemId,UserId,Quantity,RequestDate,StutusId,TypeOfRequestId,LastUpdateBy,LastUpdateDate,DirectorRecommondation")] RequestItem requestItem)
         {
             if (ModelState.IsValid)
             {

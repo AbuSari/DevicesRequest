@@ -12,7 +12,9 @@ namespace DevicesRequest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+            Departments = new HashSet<Department>();
             RequestItems = new HashSet<RequestItem>();
+            UserRoles = new HashSet<UserRole>();
         }
 
         public int UserId { get; set; }
@@ -26,7 +28,7 @@ namespace DevicesRequest.Models
         public string LastNameAr { get; set; }
 
         [StringLength(30)]
-        [Display(Name = "Last Name En")]
+        [Display(Name = "First Name En")]
         public string FirstNameEn { get; set; }
 
         [StringLength(30)]
@@ -59,30 +61,32 @@ namespace DevicesRequest.Models
         public string Mobile { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "User Email")]
+        [Display(Name = "Email")]
         public string UserEmail { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Director Email")]
-        public string DirectorEmail { get; set; }
-
-        [StringLength(100)]
-        [Display(Name = "Created By")]
+        [Display(Name = "Cereated By")]
         public string CereatedBy { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Update By")]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Update Date")]
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
+
+        [Display(Name = "Image Job No")]
+        public string ImageJobNo { get; set; }
 
         [StringLength(500)]
         [Display(Name = "Comment")]
         public string Comment { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Department> Departments { get; set; }
 
         public virtual Department Department { get; set; }
 
@@ -92,5 +96,8 @@ namespace DevicesRequest.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestItem> RequestItems { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserRole> UserRoles { get; set; }
     }
 }

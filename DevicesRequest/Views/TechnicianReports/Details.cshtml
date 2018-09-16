@@ -1,0 +1,90 @@
+﻿@model DevicesRequest.Models.TechnicianReport
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>TechnicianReport</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RequestItem.LastUpdateBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RequestItem.LastUpdateBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Details)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Details)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastUpdateBy)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastUpdateBy)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastUpdateDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastUpdateDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ReportId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

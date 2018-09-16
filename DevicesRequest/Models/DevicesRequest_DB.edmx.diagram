@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aec9c556653647cb896eeec1079d34f1" Name="Diagram1">
+        <EntityTypeShape EntityType="DevicesRequestModel.C__MigrationHistory" Width="1.5" PointX="11.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Admin" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.AdminRole" Width="1.5" PointX="12" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.AspNetRole" Width="1.5" PointX="7.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.AspNetUser" Width="1.5" PointX="10" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Building" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Department" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Item" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Level" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.PoRceived" Width="1.5" PointX="5.25" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Position" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Report" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.RequestItem" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.RequestStatu" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Role" Width="1.5" PointX="9.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.Shipment" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.sysdiagram" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.TypeOfRequest" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevicesRequestModel.User" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="DevicesRequestModel.FK_AdminRoles_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_AdminRoles_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_Level_Building" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_User_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_RequestItems_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_Shipment_Item" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_User_Level" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_Shipment_PoRceived" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_User_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_RequestItems_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_RequestItems_TypeOfRequest" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.FK_RequestItems_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DevicesRequestModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

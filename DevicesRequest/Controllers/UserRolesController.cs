@@ -10,112 +10,116 @@ using DevicesRequest.Models;
 
 namespace DevicesRequest.Controllers
 {
-    public class ReportsController : Controller
+    public class UserRolesController : Controller
     {
-        private DevicesRequestContext db = new DevicesRequestContext();
+        private DevicesRequestDBContext db = new DevicesRequestDBContext();
 
-        // GET: Reports
+        // GET: UserRoles
         public ActionResult Index()
         {
-            var reports = db.Reports.Include(r => r.RequestItem);
-            return View(reports.ToList());
+            var userRoles = db.UserRoles.Include(u => u.Role).Include(u => u.User);
+            return View(userRoles.ToList());
         }
 
-        // GET: Reports/Details/5
+        // GET: UserRoles/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Report report = db.Reports.Find(id);
-            if (report == null)
+            UserRole userRole = db.UserRoles.Find(id);
+            if (userRole == null)
             {
                 return HttpNotFound();
             }
-            return View(report);
+            return View(userRole);
         }
 
-        // GET: Reports/Create
+        // GET: UserRoles/Create
         public ActionResult Create()
         {
-            ViewBag.ItemId = new SelectList(db.RequestItems, "ItemId", "LastUpdateBy");
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn");
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr");
             return View();
         }
 
-        // POST: Reports/Create
+        // POST: UserRoles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReportId,Details,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active,ItemId,UserId")] Report report)
+        public ActionResult Create([Bind(Include = "UserId,RoleId,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] UserRole userRole)
         {
             if (ModelState.IsValid)
             {
-                db.Reports.Add(report);
+                db.UserRoles.Add(userRole);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ItemId = new SelectList(db.RequestItems, "ItemId", "LastUpdateBy", report.ItemId);
-            return View(report);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn", userRole.RoleId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr", userRole.UserId);
+            return View(userRole);
         }
 
-        // GET: Reports/Edit/5
+        // GET: UserRoles/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Report report = db.Reports.Find(id);
-            if (report == null)
+            UserRole userRole = db.UserRoles.Find(id);
+            if (userRole == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ItemId = new SelectList(db.RequestItems, "ItemId", "LastUpdateBy", report.ItemId);
-            return View(report);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn", userRole.RoleId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr", userRole.UserId);
+            return View(userRole);
         }
 
-        // POST: Reports/Edit/5
+        // POST: UserRoles/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReportId,Details,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active,ItemId,UserId")] Report report)
+        public ActionResult Edit([Bind(Include = "UserId,RoleId,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] UserRole userRole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(report).State = EntityState.Modified;
+                db.Entry(userRole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ItemId = new SelectList(db.RequestItems, "ItemId", "LastUpdateBy", report.ItemId);
-            return View(report);
+            ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn", userRole.RoleId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr", userRole.UserId);
+            return View(userRole);
         }
 
-        // GET: Reports/Delete/5
+        // GET: UserRoles/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Report report = db.Reports.Find(id);
-            if (report == null)
+            UserRole userRole = db.UserRoles.Find(id);
+            if (userRole == null)
             {
                 return HttpNotFound();
             }
-            return View(report);
+            return View(userRole);
         }
 
-        // POST: Reports/Delete/5
+        // POST: UserRoles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Report report = db.Reports.Find(id);
-            db.Reports.Remove(report);
+            UserRole userRole = db.UserRoles.Find(id);
+            db.UserRoles.Remove(userRole);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

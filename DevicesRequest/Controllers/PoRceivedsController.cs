@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class PoRceivedsController : Controller
     {
-        private DevicesRequestContext db = new DevicesRequestContext();
+        private DevicesRequestDBContext db = new DevicesRequestDBContext();
 
         // GET: PoRceiveds
         public ActionResult Index()

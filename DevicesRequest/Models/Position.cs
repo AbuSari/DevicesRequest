@@ -33,14 +33,15 @@ namespace DevicesRequest.Models
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Update By")]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Update Date")]
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
         public bool? Active { get; set; }
 
+        [Display(Name = "Need Approved")]
         public bool? NeedApproved { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

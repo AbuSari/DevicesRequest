@@ -18,22 +18,29 @@ namespace DevicesRequest.Models
         public int PoRceivedId { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Company Name En")]
         public string CompanyNameEn { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Company Name Ar")]
         public string CompanyNameAr { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "PoCode")]
         public string PoCode { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
 
+        [Display(Name = "Created Date")]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
         public bool? Active { get; set; }

@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class LevelsController : Controller
     {
-        private DevicesRequestContext db = new DevicesRequestContext();
+        private DevicesRequestDBContext db = new DevicesRequestDBContext();
 
         // GET: Levels
         public ActionResult Index()

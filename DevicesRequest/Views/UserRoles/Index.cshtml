@@ -1,11 +1,10 @@
-﻿@model IEnumerable<DevicesRequest.Models.Report>
+﻿@model IEnumerable<DevicesRequest.Models.UserRole>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2><i class="fa fa-tasks"></i> List of Report</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,10 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RequestItem.LastUpdateBy)
+            @Html.DisplayNameFor(model => model.Role.NameEn)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Details)
+            @Html.DisplayNameFor(model => model.User.FirstNameAr)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatedBy)
@@ -39,10 +38,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.RequestItem.LastUpdateBy)
+            @Html.DisplayFor(modelItem => item.Role.NameEn)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Details)
+            @Html.DisplayFor(modelItem => item.User.FirstNameAr)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedBy)
@@ -60,9 +59,9 @@
             @Html.DisplayFor(modelItem => item.Active)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ReportId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ReportId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ReportId })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

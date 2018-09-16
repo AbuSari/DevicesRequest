@@ -31,16 +31,16 @@ namespace DevicesRequest.Models
 
         [StringLength(100)]
         [Display(Name = "Created By")]
-        public string CreatedBy { get; set; }
+        string CreatedBy { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Update By")]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Update Date")]
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
         public bool? Active { get; set; }

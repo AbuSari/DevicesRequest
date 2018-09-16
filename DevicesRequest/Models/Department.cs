@@ -12,6 +12,7 @@ namespace DevicesRequest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Department()
         {
+            Department1 = new HashSet<Department>();
             Users = new HashSet<User>();
         }
 
@@ -29,10 +30,6 @@ namespace DevicesRequest.Models
         public int? ParentId { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Director Email")]
-        public string DirectorEmail { get; set; }
-
-        [StringLength(100)]
         [Display(Name = "Created By")]
         public string CreatedBy { get; set; }
 
@@ -40,17 +37,23 @@ namespace DevicesRequest.Models
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Update By")]
+        [Display(Name = "Last Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Update Date")]
+        [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
+
+        [Display(Name = "Manager")]
+        public int? ManagerId { get; set; }
 
         public bool? Active { get; set; }
 
-        [StringLength(100)]
-        [Display(Name = "Director Name")]
-        public string DirectorName { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Department> Department1 { get; set; }
+
+        public virtual Department Department2 { get; set; }
+
+        public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }

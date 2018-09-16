@@ -1,136 +1,143 @@
 ﻿@model IEnumerable<DevicesRequest.Models.User>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2><i class="fa fa-tasks"></i> List of User</h2>
+<!DOCTYPE html>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Department.NameEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Level.NameEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Position.NameEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstNameAr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastNameAr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstNameEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastNameEn)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JobNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RoomNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telephon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DirectorEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CereatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastUpdateBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastUpdateDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Department.NameEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Level.NameEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Position.NameEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstNameAr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastNameAr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstNameEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastNameEn)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JobNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RoomNo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telephon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mobile)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DirectorEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CereatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastUpdateBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastUpdateDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
-        </td>
-    </tr>
-}
-
-</table>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Department.NameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level.NameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position.NameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameAr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameAr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastNameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telephon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CereatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageJobNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department.NameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level.NameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position.NameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstNameAr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastNameAr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstNameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastNameEn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CereatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageJobNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

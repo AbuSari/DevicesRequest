@@ -12,13 +12,12 @@ namespace DevicesRequest.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: Departments
         public ActionResult Index()
         {
-            var departments = db.Departments.Include(d => d.Department2).Include(d => d.User);
-            return View(departments.ToList());
+            return View(db.Departments.ToList());
         }
 
         // GET: Departments/Details/5
@@ -39,8 +38,6 @@ namespace DevicesRequest.Controllers
         // GET: Departments/Create
         public ActionResult Create()
         {
-            ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn");
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr");
             return View();
         }
 
@@ -49,7 +46,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DepartmentId,NameEn,NameAr,ParentId,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,ManagerId,Active")] Department department)
+        public ActionResult Create([Bind(Include = "DepartmentId,NameEn,NameAr,ParentId,DirectorEmail,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active,DirectorName")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +55,6 @@ namespace DevicesRequest.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
             return View(department);
         }
 
@@ -75,8 +70,6 @@ namespace DevicesRequest.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
             return View(department);
         }
 
@@ -85,7 +78,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DepartmentId,NameEn,NameAr,ParentId,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,ManagerId,Active")] Department department)
+        public ActionResult Edit([Bind(Include = "DepartmentId,NameEn,NameAr,ParentId,DirectorEmail,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active,DirectorName")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +86,6 @@ namespace DevicesRequest.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
             return View(department);
         }
 

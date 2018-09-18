@@ -11,11 +11,16 @@ namespace DevicesRequest
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Utilities.KSUHSDomainUser KSUHSobject = new Utilities.KSUHSDomainUser("kk24342", "kk24342");
+            Utilities.KSUHSDomainUser KSUHSobject = new Utilities.KSUHSDomainUser("kK24342", "kk24342");
 
             Response.Write(KSUHSobject.IsValid);
-            Response.Write(KSUHSobject.EmployeeNo);
+            Response.Write("<br/>");
+            Response.Write(KSUHSobject.UserID);
+            Response.Write("<br/>");
             Response.Write(KSUHSobject.UserNameEng);
+            Response.Write("<br/>");
+            Response.Write(KSUHSobject.emailID);
+
         }
     }
 }

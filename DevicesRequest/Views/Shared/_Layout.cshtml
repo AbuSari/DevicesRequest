@@ -242,9 +242,6 @@
 
                 <!-- <li><a class="logout" href="login.html">Logout</a></li>-->
             </div>
-            <li>@Html.Partial("_LoginPartial")</li>
-
-
         </header>
         <!--header end-->
         <!-- **********************************************************************************************************************************************************
@@ -275,7 +272,7 @@
                             <span>Managment System</span>
                         </a>
                         <ul class="sub">
-                            @*  <li>@Html.ActionLink("Role", "Index", "Role")</li>*@
+                          @*  <li>@Html.ActionLink("Role", "Index", "Role")</li>*@
                             <li>@Html.ActionLink("Department", "Index", "Departments")</li>
                             <li>@Html.ActionLink("Building", "Index", "Buildings")</li>
                             <li>@Html.ActionLink("Level", "Index", "Levels")</li>
@@ -309,12 +306,12 @@
                         </a>
                         <ul class="sub">
                             <li>@Html.ActionLink("Request", "Index", "RequestItems")</li>
+                           
+                                <li>@Html.ActionLink("Request Accept ", "ManagerAccept", new { is_approval = 1, Controller = "RequestModels" })</li>
+                                <li>@Html.ActionLink("Request Reject ", "ManagerAccept", new { is_approval = -1, Controller = "RequestModels" })</li>
+                                <li>@Html.ActionLink("Request need Approval", "NeedApprov", "RequestModels")</li>
 
-                            <li>@Html.ActionLink("Request Accept ", "ManagerAccept", new { is_approval = 1, Controller = "RequestModels" })</li>
-                            <li>@Html.ActionLink("Request Reject ", "ManagerAccept", new { is_approval = -1, Controller = "RequestModels" })</li>
-                            <li>@Html.ActionLink("Request need Approval", "NeedApprov", "RequestModels")</li>
-
-
+                            
                         </ul>
                     </li>
 
@@ -364,10 +361,10 @@
                     </div>
                 }
 
-                <div style="padding:3%">
-                    @RenderBody()
+                    <div style="padding:3%">
+                        @RenderBody()
 
-                </div>
+                    </div>
 
 
             </section>

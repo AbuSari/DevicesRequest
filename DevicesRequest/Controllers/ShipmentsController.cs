@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class ShipmentsController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: Shipments
         public ActionResult Index()
@@ -49,7 +49,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShipmentId,PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
+        public ActionResult Create([Bind(Include = "PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ShipmentId,PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
+        public ActionResult Edit([Bind(Include = "PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {

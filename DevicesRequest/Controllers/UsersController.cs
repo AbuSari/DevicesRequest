@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class UsersController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: Users
         public ActionResult Index()
@@ -50,7 +50,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserId,FirstNameAr,LastNameAr,FirstNameEn,LastNameEn,JobNumber,LevelId,DepartmentId,PositionId,RoomNo,Telephon,Mobile,UserEmail,CereatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,ImageJobNo,Comment")] User user)
+        public ActionResult Create([Bind(Include = "UserId,FirstNameAr,LastNameAr,FirstNameEn,LastNameEn,JobNumber,LevelId,DepartmentId,PositionId,RoomNo,Telephon,Mobile,UserEmail,DirectorEmail,CereatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Comment")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserId,FirstNameAr,LastNameAr,FirstNameEn,LastNameEn,JobNumber,LevelId,DepartmentId,PositionId,RoomNo,Telephon,Mobile,UserEmail,CereatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,ImageJobNo,Comment")] User user)
+        public ActionResult Edit([Bind(Include = "UserId,FirstNameAr,LastNameAr,FirstNameEn,LastNameEn,JobNumber,LevelId,DepartmentId,PositionId,RoomNo,Telephon,Mobile,UserEmail,DirectorEmail,CereatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Comment")] User user)
         {
             if (ModelState.IsValid)
             {

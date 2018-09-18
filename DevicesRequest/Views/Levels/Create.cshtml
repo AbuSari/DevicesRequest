@@ -8,10 +8,13 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
+    <div id="content">
+
+    </div>
     <div class="form-horizontal">
         <h4>Level</h4>
         <hr />
@@ -19,7 +22,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NameEn, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NameEn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NameEn, new { htmlAttributes = new { @class = "form-control", id = "text" } })
                 @Html.ValidationMessageFor(model => model.NameEn, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -27,7 +30,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.NameAr, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NameAr, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.NameAr, new { htmlAttributes = new { @class = "form-control", id = "translation" } })
                 @Html.ValidationMessageFor(model => model.NameAr, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,8 +70,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Active)
+                <div>
+                    @Html.EditorFor(model => model.Active, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -97,3 +100,22 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+<script>
+
+
+    google.load("language", "1");
+
+    function initialize() {
+
+        $("translation").empty function() {
+            google.language.translate(text, 'ar', 'en', function (result) {
+                var translated = document.getElementById("text");
+                if (result.translation) {
+                    translated.innerHTML = result.translation;
+                }
+        }
+       
+        }
+    };
+    google.setOnLoadCallback(initialize);
+</script>

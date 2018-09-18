@@ -25,8 +25,7 @@ namespace DevicesRequest
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                //LoginPath = new PathString("/Account/Login"),
-                LoginPath = new PathString("/Auth/LogIn"),
+                LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Enables the application to validate the security stamp when the user logs in.

@@ -2,88 +2,81 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";}
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<!DOCTYPE html>
+<h2><i class="fa fa-tasks"></i> List of Request</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Item.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestStatu.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeOfRequest.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User.FirstNameAr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DirectorRecommondation)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Item.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestStatu.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOfRequest.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.FirstNameAr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DirectorRecommondation)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RequestItemsId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RequestItemsId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RequestItemsId })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStatu.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeOfRequest.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstNameAr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DirectorRecommondation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Item.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestStatu.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeOfRequest.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstNameAr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DirectorRecommondation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

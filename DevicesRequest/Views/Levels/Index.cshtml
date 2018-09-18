@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2><i class="fa fa-tasks"></i> List of Level</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -63,7 +63,7 @@
             @Html.DisplayFor(modelItem => item.LastUpdateDate)
         </td>
         <td>
-            @Html.DisplayTextFor(modelItem => item.Active)
+            @Html.DisplayFor(modelItem => item.Active)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LevelId }) |

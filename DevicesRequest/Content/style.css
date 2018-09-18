@@ -418,7 +418,6 @@ ul.sidebar-menu li {
     background: #22242a;
     border-bottom: 1px solid #393d46;
 }
-
 .blue-bg {
     background: #3498db;
     border-bottom: 1px solid #3498db;
@@ -980,7 +979,7 @@ PANELS CONFIGURATIONS
 
 .darkblue-panel {
     text-align: center;
-    background: #225165;
+    background: #444c57;
 }
 
     .darkblue-panel .darkblue-header {

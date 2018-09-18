@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class RequestStatusController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: RequestStatus
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RequestStatusId,NameEn,NameAr,StatusCode,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] RequestStatu requestStatu)
+        public ActionResult Create([Bind(Include = "RequestStatusId,NameEn,NameAr,StatusCode,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] RequestStatu requestStatu)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "RequestStatusId,NameEn,NameAr,StatusCode,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] RequestStatu requestStatu)
+        public ActionResult Edit([Bind(Include = "RequestStatusId,NameEn,NameAr,StatusCode,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] RequestStatu requestStatu)
         {
             if (ModelState.IsValid)
             {

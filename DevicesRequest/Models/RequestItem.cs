@@ -15,13 +15,12 @@ namespace DevicesRequest.Models
         }
 
         [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int RequestItemId { get; set; }
+
+        [Display(Name = "Item")]
         public int ItemId { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+
         [Display(Name = "User")]
         public int UserId { get; set; }
 

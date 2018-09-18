@@ -63,7 +63,7 @@
             @Html.DisplayFor(modelItem => item.LastUpdateDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Active)
+            @Html.DisplayTextFor(modelItem => item.Active)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.LevelId }) |

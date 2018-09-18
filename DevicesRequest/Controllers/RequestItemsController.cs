@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 using DevicesRequest.Models;
@@ -55,6 +56,9 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+                var claimsIdentity = User.Identity as ClaimsIdentity;
+                requestItem.UserId = Int32.Parse(claimsIdentity.FindFirst("UserId").Value);
+
                 db.RequestItems.Add(requestItem);
                 db.SaveChanges();
                 return RedirectToAction("Index");

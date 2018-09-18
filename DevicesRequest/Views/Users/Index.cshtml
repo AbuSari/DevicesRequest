@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<DevicesRequest.Models.User>
 
 @{
-    Layout = null;
-}
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
 
 <!DOCTYPE html>
 
@@ -18,13 +18,13 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Department.NameEn)
+                 @Html.DisplayNameFor(model => model.Department)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Level.NameEn)
+                @Html.DisplayNameFor(model => model.Level)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Position.NameEn)
+                @Html.DisplayNameFor(model => model.Position)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstNameAr)
@@ -52,24 +52,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UserEmail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CereatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageJobNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Comment)
             </th>
             <th></th>
         </tr>
@@ -112,24 +94,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.UserEmail)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CereatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageJobNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
+            
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
                 @Html.ActionLink("Details", "Details", new { id=item.UserId }) |

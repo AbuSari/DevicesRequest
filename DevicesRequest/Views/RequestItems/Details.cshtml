@@ -1,7 +1,11 @@
 ﻿@model DevicesRequest.Models.RequestItem
+@*@model IEnumerable<DevicesRequest.Models.RequestItem>*@
+
 
 @{
-    Layout = null;
+    ViewBag.Title = Model.User.FirstNameEn + Model.User.LastNameEn;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int user = ViewBag.depManager;
 }
 
 <!DOCTYPE html>
@@ -12,87 +16,271 @@
     <title>Details</title>
 </head>
 <body>
-    <div>
-        <h4>RequestItem</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Item.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Item.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RequestStatu.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RequestStatu.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.TypeOfRequest.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TypeOfRequest.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.User.FirstNameAr)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.User.FirstNameAr)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Quantity)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RequestDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RequestDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateBy)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DirectorRecommondation)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DirectorRecommondation)
-            </dd>
-    
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.RequestItemsId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+
+    <!--main content start-->
+
+    <div class="col-lg-12 mt">
+
+        <div class="row content-panel">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="invoice-body">
+                    <div class="pull-left">
+                        <h1>
+                            @Html.DisplayFor(model => model.User.FirstNameEn) @Html.DisplayFor(model => model.User.LastNameEn)
+                        </h1>
+                        <br />
+
+                    </div><!-- /pull-left -->
+
+                    <div class="pull-right">
+
+                        <h2>@*@Html.DisplayFor(model => model.RequestModelsId)*@</h2>
+
+
+                    </div><!--/pull-right -->
+
+                    <div class="clearfix"></div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>Details</h4>
+                            <address>
+                                <strong>@Html.DisplayFor(model => model.User.Department.NameEn)</strong><br>
+                                <strong>@Html.DisplayFor(model => model.User.Department.NameAr)</strong><br>
+
+                                @Html.DisplayFor(model => model.User.Position.NameEn)<br>
+                                @Html.DisplayFor(model => model.User.Position.NameAr)<br>
+
+                            </address>
+                        </div><!--/col-md-9 -->
+                        <div class="col-md-3">
+                            <br>
+                            <div>
+                                <div class="pull-left"> REQUEST NO : </div>
+                                @*<div class="pull-right"> @Model. </div>*@
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <br>
+                            @*<div class="well well-small green">
+                                    <div class="pull-left"> Total Due : </div>
+                                    <div class="pull-right"> 8,000 USD </div>
+                                    <div class="clearfix"></div>
+                                </div>*@
+                        </div><!-- /invoice-body -->
+                    </div><! --/col-lg-10 -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:60px" class="text-center">No.</th>
+                                <th style="width:120px" class="text-left"> @Html.DisplayNameFor(model => model.Item)</th>
+                                <th style="width:60px" class="text-center">@Html.DisplayNameFor(model => model.Quantity)</th>
+                                <th style="padding-left:40px " class="text-left"> @Html.DisplayNameFor(model => model.StutusId)</th>
+                                <th class="text-left">@Html.DisplayNameFor(model => model.LastUpdateBy)</th>
+                                <th class="text-left">Action</th>
+                            </tr>
+                        </thead>
+                        @{
+                            int i = 0;
+                        }
+                        <tbody>
+                            @*@foreach (var Model in Model)
+                                {*@
+
+                            @if (User.IsInRole("Warehouse Admin") && Model.RequestStatu.StatusCode == "RWH"
+                                    || User.IsInRole("IT Manager") && Model.RequestStatu.StatusCode == "NITA"
+                                    || User.IsInRole("Supervisor") && Model.RequestStatu.StatusCode == "ITS"
+                                    || User.IsInRole("Supervisor") && Model.RequestStatu.StatusCode == "PEND"
+                                    || Model.UserId == ViewBag.depManager
+                                    || User.IsInRole("Technician") && Model.RequestStatu.StatusCode == "NTR"
+                                    || Model.User.Department.ManagerId == ViewBag.depManager && Model.RequestStatu.StatusCode == "NDA")
+                            {
+                                i = i + 1;
+                                <tr>
+                                    <td class="text-center ">@i</td>
+                                    <td class="text-left">@Model.Item.NameEn</td>
+                                    <td class="text-center">@Model.Quantity</td>
+                                    <td style="padding-left:40px" class="text-left "><span class="@Model.RequestStatu.Color"> @Model.RequestStatu.NameEn </span> </td>
+                                    <td>
+                                        @Model.LastUpdateBy
+                                    </td>
+                                    <td class="text-left ">
+
+                                        @if (Model.User.Department.ManagerId == ViewBag.depManager && Model.RequestStatu.StatusCode == "NDA")
+                                        {
+                                            @*@Html.ActionLink(" ", "Add", new { id = Model.RequestModelsId, approv = "1" }, new { @class = "btn btn-info btn-xs fa fa-check tooltips", data_placement = "top", title = "Approv", @style = "line-height: unset" })*@
+                                            @*@Html.ActionLink(" ", "status", new { id = Model.RequestModelsId, approv = "2" }, new { @class = "btn btn-danger btn-xs fa fa-times tooltips", data_placement = "top", title = "Reject", @style = "line-height: unset" })*@
+                                            @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "1" }, new { @class = "btn btn-info btn-xs fa fa-check tooltips", data_placement = "top", title = "Reject", @style = "line-height: unset" })
+
+                                            <button type="button" class="btn btn-danger btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#RejectCenter" data_placement="top" , title="Reject">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                            <!-- Modal -->
+                                            if (Model.DirectorRecommondation != null)
+                                            {
+                                                <div class="modal fade" id="RejectCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        @RenderPage("~/Views/RequestModels/Recommendation.cshtml", Model.RequestItemsId)
+                                                    </div>
+                                                </div>
+                                            }
+
+                                        }
+                                        @if (User.IsInRole("IT Manager") && Model.RequestStatu.StatusCode == "NITA")
+                                        {
+                                            @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "3" }, new { @class = "btn btn-info btn-xs fa fa-check tooltips", data_placement = "top", title = "Approv", @style = "line-height: unset; hight: 1%" })
+
+                                            <button type="button" class="btn btn-danger btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#RejectCenter" data_placement="top" , title="Reject">
+                                                <i class="fa fa-times"></i>
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="RejectCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header" style="background-color:#ff6c60">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Confirm Reject</h5>
+                                                            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                &times;
+                            </button>*@
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure about<strong style="color:#ff6c60"> Reject </strong>  This request?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            @Html.ActionLink("Reject request", "status", new { id = Model.RequestItemsId, approv = "4" }, new { @class = "btn btn-danger tooltips", data_placement = "top", title = "Reject", @style = "line-height: unset" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        }
+                                        @if (User.IsInRole("Warehouse Admin") && Model.RequestStatu.StatusCode == "RWH")
+                                        {
+                                            <span>
+                                                @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "9" }, new { @class = "btn btn-info btn-xs fa fa-check tooltips", data_placement = "top", title = "Delivered", @style = "line-height: unset" })
+                                            </span>
+                                        }
+                                        @if (User.IsInRole("Supervisor") && Model.RequestStatu.StatusCode == "ITS" || User.IsInRole("Supervisor") && Model.RequestStatu.StatusCode == "PEND")
+                                        {
+                                            <span>
+                                                @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "5" }, new { @class = "btn btn-warning btn-xs fa fa-check tooltips", data_placement = "top", title = "Need IT Approval", @style = "line-height: unset" })
+                                                @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "6" }, new { @class = "btn btn-theme02 btn-xs fa fa-share tooltips", data_placement = "top", title = "Send to Warehouse", @style = "line-height: unset" })
+
+                                                @if (Model.DirectorRecommondation != null)
+                                                {
+                                                    <button type="button" class="btn btn-danger btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#RejectCenter" data_placement="top" , title="Reject">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+
+                                                    <div class="modal fade" id="RejectCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            @RenderPage("~/Views/RequestModels/Message.cshtml", @Model.DirectorRecommondation, @ViewBag.Manager.FirstNameEn, @ViewBag.Manager.LastNameEn)
+                                                        </div>
+                                                    </div>
+                                                }
+
+                                                @if (Model.TechnicianReports != null && ViewBag.Technician != null && Model.TechnicianReports.First().Details != null)
+                                                {
+                                                    <button type="button" class="btn btn-info btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#ReportCenter" data_placement="top" , title="Report">
+                                                        <i class="fa fa-file-text"></i>
+                                                    </button>
+
+                                                    <button type="button" class="btn btn-danger btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#Reject" data_placement="top" , title="Reject">
+                                                        <i class="fa fa-times"></i>
+                                                    </button>
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="Reject" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header" style="background-color:#ff6c60">
+                                                                    <h5 class="modal-title" id="exampleModalLongTitle">Confirm Reject</h5>
+                                                                    @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        &times;
+                                    </button>*@
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    Are you sure about<strong style="color:#ff6c60"> Reject </strong>  This request?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                    @Html.ActionLink("Reject request", "status", new { id = Model.RequestItemsId, approv = "4" }, new { @class = "btn btn-danger tooltips", data_placement = "top", title = "Reject", @style = "line-height: unset" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal fade" id="ReportCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            @RenderPage("~/Views/RequestModels/Message.cshtml", Model.TechnicianReports.First().Details, ViewBag.Technician.FirstNameEn, ViewBag.Technician.LastNameEn)
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown">
+                                                            <span class="fa fa-wrench"></span>
+                                                        </button>
+                                                        @foreach (var tick in ViewBag.TechnicianList)
+                                                        {
+                                                            <ul class="dropdown-menu" role="menu">
+                                                                <li><a href="@Url.Action("Assign", "TechnicianReports", new {idRequest = Model.RequestItemsId, UserId = @tick.UserId }, Request.Url.Scheme)">@tick.FirstNameEn</a></li>
+
+                                                            </ul>
+                                                        }
+                                                    </div>
+                                                    @*@Html.ActionLink(" ", "status", new { id = Model.RequestModelsId, approv = "7" }, new { @class = "btn btn-info btn-xs fa fa-wrench tooltips", data_placement = "top", title = "Convert to Tickneical", @style = "line-height: unset" })*@
+                                                }
+                                                @if (Model.RequestStatu.StatusCode == "PEND")
+                                                {
+                                                    @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "10" }, new { @class = "btn btn-theme03 btn-xs fa fa-play tooltips", data_placement = "top", title = "Active", @style = "line-height: unset" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "8" }, new { @class = "btn btn-default btn-xs fa fa-pause tooltips", data_placement = "top", title = "Pending", @style = "line-height: unset" })
+                                                }
+                                            </span>
+                                        }
+                                        @if (User.IsInRole("Technician") && Model.RequestStatu.StatusCode == "NTR")
+                                        {
+                                            <button type="button" class="btn btn-info btn-xs tooltips" style="line-height:unset" data-toggle="modal" data-target="#ReportCenter" data_placement="top" , title="Add report">
+                                                <i class="fa fa-comment"></i>
+                                            </button>
+                                            <!-- Modal -->
+
+
+                                            <div class="modal fade" id="ReportCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    @RenderPage("~/Views/RequestModels/Report.cshtml", Model.RequestItemsId)
+
+                                                </div>
+                                            </div>
+                                        }
+                                        @if (Model.UserId == user)
+                                        {
+                                            <span>
+                                                @Html.ActionLink(" ", "Edit", new { id = Model.RequestItemsId }, new { @class = "btn btn-primary btn-xs fa fa-pencil tooltips", data_placement = "top", title = "Edit", @style = "line-height: unset" })
+                                                @Html.ActionLink(" ", "status", new { id = Model.RequestItemsId, approv = "11" }, new { @class = "btn btn-danger btn-xs fa fa-trash-o tooltips", data_placement = "top", title = "Cancel", @style = "line-height: unset" })
+                                            </span>
+                                        }
+                                    </td>
+
+                                </tr>
+                            }
+                            
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                </div><!--/col-lg-12 mt -->
+                <!--main content end-->
 </body>
 </html>
+<script>
+
+</script>

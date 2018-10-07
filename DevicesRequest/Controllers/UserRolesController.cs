@@ -18,6 +18,7 @@ namespace DevicesRequest.Controllers
         public ActionResult Index()
         {
             var userRoles = db.UserRoles.Include(u => u.Role).Include(u => u.User);
+            userRoles = userRoles.Where(ur => ur.Role.NameEn != "End User ");
             return View(userRoles.ToList());
         }
 
@@ -53,6 +54,7 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+              
                 db.UserRoles.Add(userRole);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -131,6 +133,34 @@ namespace DevicesRequest.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AssignRole(int idRole , int idUser)
+        {
+
+            var userIn = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+            User user = db.Users.Find(idUser);
+            Role role = db.Roles.Find(idRole);
+
+            UserRole OlduserRole = db.UserRoles.Where(ur => ur.UserId == idUser).FirstOrDefault();
+            db.UserRoles.Remove(OlduserRole);
+            db.SaveChanges();
+
+            UserRole userRole = new UserRole();
+            userRole.User = user;
+            userRole.UserId = user.UserId;
+            userRole.Role = role;
+            userRole.RoleId = role.RoleId;
+            userRole.CreatedBy = userIn.FirstNameEn + " " + userIn.LastNameEn;
+            userRole.CreatedDate =  DateTime.Now.ToString();
+            userRole.LastUpdateBy = userIn.FirstNameEn + " " + userIn.LastNameEn;
+            userRole.LastUpdateDate =  DateTime.Now.ToString();
+            userRole.Active = true;
+           
+            db.UserRoles.Add(userRole);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Users");
         }
     }
 }

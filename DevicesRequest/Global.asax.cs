@@ -7,6 +7,8 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Data.Entity;
+using DevicesRequest.Models;
 
 namespace DevicesRequest
 {
@@ -19,6 +21,7 @@ namespace DevicesRequest
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DevicesRequestDBContext>());
         }
     }
 }

@@ -26,6 +26,7 @@ namespace DevicesRequest.Models
         public virtual DbSet<TypeOfRequest> TypeOfRequests { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<TreatmentHistory> TreatmentHistories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

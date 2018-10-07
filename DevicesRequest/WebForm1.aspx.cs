@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,7 +15,13 @@ namespace DevicesRequest
             Utilities.KSUHSDomainUser KSUHSobject = new Utilities.KSUHSDomainUser("kk24342", "kk24342");
 
             Response.Write(KSUHSobject.IsValid);
+            Response.Write("<br />");
             Response.Write(KSUHSobject.EmployeeNo);
+            Response.Write("<br />");
+            Response.Write(KSUHSobject.UserID);
+            Response.Write("<br />");
+            Response.Write(Regex.Replace(KSUHSobject.UserID,"[kk]",""));
+            Response.Write("<br />");
             Response.Write(KSUHSobject.UserNameEng);
         }
     }

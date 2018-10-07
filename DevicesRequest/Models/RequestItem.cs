@@ -13,6 +13,9 @@ namespace DevicesRequest.Models
         {
             TechnicianReports = new HashSet<TechnicianReport>();
         }
+        [Key]
+        public int RequestItemsId { get; set; }
+
 
         [Display(Name = "Item")]
         public int ItemId { get; set; }
@@ -43,10 +46,6 @@ namespace DevicesRequest.Models
         [StringLength(500)]
         public string DirectorRecommondation { get; set; }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int RequestItemsId { get; set; }
-
         public virtual Item Item { get; set; }
 
         public virtual RequestStatu RequestStatu { get; set; }
@@ -57,5 +56,9 @@ namespace DevicesRequest.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TechnicianReport> TechnicianReports { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TreatmentHistory> TreatmentHistories { get; set; }
+
     }
 }

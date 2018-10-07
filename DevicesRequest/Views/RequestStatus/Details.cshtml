@@ -1,82 +1,59 @@
 ﻿@model DevicesRequest.Models.RequestStatu
 
 @{
-    Layout = null;
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>RequestStatu</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.NameAr)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NameAr)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.StatusCode)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.StatusCode)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateBy)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Active)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Active)
-            </dd>
-    
-        </dl>
+<div class="col-md-12  detailed alert alert-warning" >
+    <h3 class="centered">Status Details</h3>
+    <hr />
+    <div class="col-md-4 right-divider  mt">
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.NameEn)</strong> <br>
+            @Html.DisplayFor(model => model.NameEn)
+            <br>
+        </p>
+        <br>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.NameAr)</strong> <br>
+            @Html.DisplayFor(model => model.NameAr)
+            <br>
+        </p>
+        <br />
+       
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.RequestStatusId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="col-md-4 right-divider  mt">
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.StatusCode)</strong> <br>
+            <b class="@Html.DisplayFor(model => model.Color)">@Html.DisplayFor(model => model.StatusCode)</b>
+            <br>
+        </p>
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.CreatedDate)</strong> <br>
+            @Html.DisplayFor(model => model.CreatedDate)
+            <br>
+        </p>
+        <br>
+    </div>
+    <div class="col-md-4  mt">
+       
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.LastUpdateBy)</strong> <br>
+            @Html.DisplayFor(model => model.LastUpdateBy)
+            <br>
+        </p>
+        <br />
+        <p>
+            <strong>@Html.DisplayNameFor(model => model.LastUpdateDate)</strong> <br>
+            <b >@Html.DisplayFor(model => model.LastUpdateDate)</b>
+            <br>
+        </p>
+    </div>
+
+</div>
+
+<p>
+    @Html.ActionLink(" ", "Index", new { id = Model.RequestStatusId }, new { @class = "btn btn-default btn-sm fa fa-angle-double-left tooltips", data_placement = "top", title = "Back", @style = "line-height: unset" })
+    @Html.ActionLink(" ", "Edit", new { id = Model.RequestStatusId }, new { @class = "btn btn-primary btn-sm fa fa-pencil tooltips", data_placement = "top", title = "Edit", @style = "line-height: unset" })
+</p>

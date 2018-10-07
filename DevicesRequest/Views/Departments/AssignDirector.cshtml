@@ -1,0 +1,118 @@
+﻿@*@model DevicesRequest.Models.Department*@
+@model IEnumerable<DevicesRequest.Models.Department>
+
+
+
+@{
+    ViewBag.Title = "Directors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <!--main content start-->
+
+    <div class="col-lg-12 mt">
+
+        <div class="row content-panel">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="invoice-body">
+                    <div class="pull-left">
+                    <h1>Departments</h1>
+                        <br />
+
+                    </div><!-- /pull-left -->
+
+                    <div class="pull-right">
+
+                        <h2>@*@Html.DisplayFor(model => model.RequestItemsId)*@</h2>
+
+
+                    </div><!--/pull-right -->
+
+                    <div class="clearfix"></div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h4>Details</h4>
+                            @*<address>
+                                    <strong>@Html.DisplayFor(model => model.First().User.Department.NameEn)</strong><br>
+                                    <strong>@Html.DisplayFor(model => model.First().User.Department.NameAr)</strong><br>
+
+                                    @Html.DisplayFor(model => model.First().User.Position.NameEn)<br>
+                                    @Html.DisplayFor(model => model.First().User.Position.NameAr)<br>
+
+                                </address>*@
+                        </div><!--/col-md-9 -->
+                        <div class="col-md-3">
+                            <br>
+                            <div>
+                                <div class="pull-left"> REQUEST NO : </div>
+                                <div class="pull-right"> </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <br>
+                            @*<div class="well well-small green">
+                                    <div class="pull-left"> Total Due : </div>
+                                    <div class="pull-right"> 8,000 USD </div>
+                                    <div class="clearfix"></div>
+                                </div>*@
+                        </div><!-- /invoice-body -->
+                    </div><! --/col-lg-10 -->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width:60px" class="text-center">No.</th>
+                                <th style="padding-left:40px " class="text-left"> @Html.DisplayNameFor(model => model.NameEn)</th>
+                                <th style="width:120px" class="text-left"> @Html.DisplayNameFor(model => model.NameAr)</th>
+                                <th style="width:60px" class="text-center">@Html.DisplayNameFor(model => model.ParentId)</th>
+                                <th style="width:60px" class="text-center">
+                                    Managers
+                                </th>
+                                <th class="text-left"> </th>
+                            </tr>
+                        </thead>
+                        @{
+                            int i = 0;
+                        }
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                i = i + 1;
+                            <tr>
+                                <td class="text-center ">@i</td>
+                                <td style="padding-left:40px" class="text-left "> @item.NameEn </td>
+                                <td class="text-left">@item.NameAr</td>
+                                <td class="text-center">@item.ParentId</td>
+                                <td>
+                                    @ViewBag.Managers
+
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.DepartmentId }, new { @class = "btn btn-primary btn-xs fa fa-pencil tooltips", data_placement = "top", title = "Approv", @style = "line-height: unset" })
+
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                </div><!--/col-lg-12 mt -->
+                <!--main content end-->
+</body>
+</html>
+<script>
+
+</script>

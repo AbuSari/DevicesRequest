@@ -1,0 +1,24 @@
+﻿
+
+<div class="modal-content">
+    @using (Html.BeginForm("AddReport", "TechnicianReports", FormMethod.Post))
+    {
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Technical Report</h5>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    &times;
+                </button>*@
+        </div>
+        <div class="modal-body">
+            <textarea rows="3" class="form-control" placeholder="Write us your vision.. @PageData[0] " name="details"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" value="Submit" class="btn btn-send" />
+        </div>
+        @Html.Hidden("idRequest", (int)@PageData[0])
+    }
+</div>
+
+

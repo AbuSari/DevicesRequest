@@ -9,6 +9,10 @@ namespace DevicesRequest.Models
     [Table("Shipment")]
     public partial class Shipment
     {
+        [Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ShipmentId { get; set; }
+
         [Display(Name = "PoRceived")]
         public int PoRceivedId { get; set; }
 
@@ -31,9 +35,6 @@ namespace DevicesRequest.Models
 
         [Display(Name = "Last Update Date")]
         public DateTime? LastUpdateDate { get; set; }
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ShipmentId { get; set; }
 
         public virtual Item Item { get; set; }
 

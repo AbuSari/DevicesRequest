@@ -29,6 +29,7 @@ namespace DevicesRequest.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Department department = db.Departments.Find(id);
+            ViewBag.ManagerId = db.Users.Where(u => u.UserId == department.ManagerId).FirstOrDefault();
             if (department == null)
             {
                 return HttpNotFound();
@@ -40,7 +41,7 @@ namespace DevicesRequest.Controllers
         public ActionResult Create()
         {
             ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn");
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr");
+            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameEn");
             return View();
         }
 
@@ -53,13 +54,20 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+                department.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
+                department.CreatedDate = DateTime.Now;
+                department.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+                department.LastUpdateDate = DateTime.Now;
+
                 db.Departments.Add(department);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
+            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameEn", department.ManagerId);
             return View(department);
         }
 
@@ -76,7 +84,7 @@ namespace DevicesRequest.Controllers
                 return HttpNotFound();
             }
             ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
+            ViewBag.ManagerId = new SelectList(db.Users.Where(d => d.DepartmentId == department.DepartmentId), "UserId", "FirstNameEn", department.ManagerId);
             return View(department);
         }
 
@@ -89,12 +97,19 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+                department.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+                department.LastUpdateDate = DateTime.Now;
+
+
                 db.Entry(department).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.ParentId = new SelectList(db.Departments, "DepartmentId", "NameEn", department.ParentId);
-            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameAr", department.ManagerId);
+            ViewBag.ManagerId = new SelectList(db.Users, "UserId", "FirstNameEn", department.ManagerId);
             return View(department);
         }
 
@@ -131,6 +146,22 @@ namespace DevicesRequest.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult AssignManager(string idUser, string idDep)
+        {
+
+            Department department = db.Departments.Find(Convert.ToInt32(idDep));
+            department.ManagerId = Convert.ToInt32(idUser);
+
+            var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+            department.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+            department.LastUpdateDate = DateTime.Now;
+
+            db.Entry(department).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("AssignDirector", "Users", null);
         }
     }
 }

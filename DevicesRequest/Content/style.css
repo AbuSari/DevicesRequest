@@ -233,11 +233,12 @@ ul.top-menu > li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    background: #1D5F7B;
+    /*background: #fff;*/
+    background: #052838;
 }
 
     #sidebar h5 {
-        color: #f2f2f2;
+        color: #1D5F7B;
         font-weight: 700;
     }
 
@@ -2986,7 +2987,7 @@ ul.inbox-pagination {
     }
 
 .chat-room-head {
-    background: #4ECDC4;
+    background: #5bc0de;
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;

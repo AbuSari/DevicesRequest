@@ -2,88 +2,83 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";}
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<!DOCTYPE html>
+<h3><i class="fa fa-list"></i> <strong class="title"> List Requests</strong> </h3><br>
+<a class="btn btn-info btn-sm " href="@Url.Action("Create", "RequestItems")"><i class="fa fa-plus"></i> Add Request</a>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Item.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestStatu.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeOfRequest.NameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User.FirstNameAr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RequestDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DirectorRecommondation)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Item.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestStatu.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOfRequest.NameEn)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.User.FirstNameAr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RequestDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DirectorRecommondation)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.RequestItemsId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.RequestItemsId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.RequestItemsId })
-            </td>
-        </tr>
+
+<div class="panel custom-box">
+    @if (Model.Count() != 0)
+    {
+        <table class="table" style="text-align:left">
+            <tr style="color:#0084bd">
+                <th>
+                    @Html.DisplayNameFor(model => model.Item.NameEn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequestStatu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TypeOfRequest)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.RequestDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastUpdateBy)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.NameEn)
+                    </td>
+                    <td>
+                        <span class="@item.RequestStatu.Color">  @Html.DisplayFor(modelItem => item.RequestStatu.NameEn)</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TypeOfRequest.NameEn)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.RequestDate, "{0:dd/MM/yyyy}")*@
+                        @Convert.ToDateTime(item.RequestDate).ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastUpdateBy)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(modelItem => item.LastUpdateDate)*@
+                        @Convert.ToDateTime(item.LastUpdateDate).ToString("dd/MM/yyyy")
+
+                    </td>
+
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.RequestItemsId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RequestItemsId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RequestItemsId })*@
+                        @Html.ActionLink(" ", "Details", new { id = item.RequestItemsId }, new { @class = "btn btn-warning btn-xs fa fa-folder-open-o tooltips", data_placement = "top", title = "Details", @style = "line-height: unset" })
+
+                    </td>
+                </tr>
+            }
+
+        </table>
     }
-    
-    </table>
-</body>
-</html>
+    else
+    {
+        <div class="centered">
+            <h4> You don't have any <b>Active</b> Request </h4>
+        </div>
+    }
+    </body>
+    </html>

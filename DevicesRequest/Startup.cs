@@ -7,14 +7,16 @@ namespace DevicesRequest
 {
     public partial class Startup
     {
+
         public void Configuration(IAppBuilder app)
         {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "DevicesRequestCookie",
-                LoginPath = new PathString("/auth/login")
+                LoginPath = new PathString("/Auth/logIn"),
+                Provider = new CookieAuthenticationProvider()
             });
-          //  ConfigureAuth(app);
+
         }
 
 

@@ -128,5 +128,52 @@ namespace DevicesRequest.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Assign( string idRequest , string UserId)
+        {
+            var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+            TechnicianReport technicianReport = new TechnicianReport();
+
+            technicianReport.ReportItem = Convert.ToInt32(idRequest);
+            technicianReport.UserId = Convert.ToInt32(UserId);
+            technicianReport.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
+            technicianReport.CreatedDate = DateTime.Today;
+            technicianReport.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn; 
+            technicianReport.LastUpdateDate = DateTime.Today;
+            technicianReport.Active = true;
+            
+            db.TechnicianReports.Add(technicianReport);
+            db.SaveChanges();
+
+            return RedirectToAction("status", "RequestItems", new { approv = "7", id = technicianReport.ReportItem } );
+        }
+
+        public ActionResult AddReport(string idRequest , string details)
+        {
+            int id = Convert.ToInt32(idRequest);
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TechnicianReport technicianReport = db.TechnicianReports.Where(t => t.ReportItem == id).FirstOrDefault();
+            var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+            if (technicianReport == null)
+            {
+                return HttpNotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                technicianReport.Details = details;
+                technicianReport.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn ;
+                technicianReport.LastUpdateDate = DateTime.Now;
+
+                db.Entry(technicianReport).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("status", "RequestItems", new { approv = "10", id = technicianReport.ReportItem });
+            }
+
+            return RedirectToAction("Details", "RequestItems", new { id = technicianReport.RequestItem.RequestItemsId});
+        }
     }
 }

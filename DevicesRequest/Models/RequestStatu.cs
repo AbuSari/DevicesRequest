@@ -25,6 +25,10 @@ namespace DevicesRequest.Models
         [Display(Name = "Name Ar")]
         public string NameAr { get; set; }
 
+        [StringLength(100)]
+        [Display(Name = "Color")]
+        public string Color { get; set; }
+
         [StringLength(10)]
         [Display(Name = "Status Code")]
         public string StatusCode { get; set; }
@@ -45,7 +49,12 @@ namespace DevicesRequest.Models
 
         public bool? Active { get; set; }
 
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestItem> RequestItems { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TreatmentHistory> TreatmentHistories { get; set; }
+
     }
 }

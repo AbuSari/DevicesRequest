@@ -1,0 +1,29 @@
+﻿
+
+<div class="modal-content">
+  
+    @using (Html.BeginForm("status", "RequestItems", FormMethod.Post))
+    {
+        <div class="modal-header" style="background-color:#ff6c60">
+            <h5 class="modal-title" id="exampleModalLongTitle">Confirm Reject</h5>
+            @*<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    &times;
+                </button>*@
+        </div>
+        <div class="modal-body">
+            Are you sure about<strong style="color:#ff6c60"> Reject </strong>  This request?
+        </div>
+        <div class="modal-body">
+            <textarea rows="3" class="form-control " placeholder="Write us your Recommendation..  " name="details"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" value="Submit" class="btn btn-send" />
+        </div>
+        @Html.Hidden("approv", "2")
+        @Html.Hidden("id", (int)@PageData[0])
+    }
+</div>
+
+

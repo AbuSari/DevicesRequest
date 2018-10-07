@@ -52,6 +52,13 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+                var user = db.Users.Where(u =>  u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+                level.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
+                level.CreatedDate = DateTime.Now;
+                level.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+                level.LastUpdateDate = DateTime.Now;
+
                 db.Levels.Add(level);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +93,13 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+                level.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+                level.LastUpdateDate = DateTime.Now;
+
+
                 db.Entry(level).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

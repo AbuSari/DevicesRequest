@@ -1,0 +1,87 @@
+﻿@model IEnumerable<DevicesRequest.Models.User>
+
+@{
+    ViewBag.Title = "AssignDirector";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3><i class="fa fa-list"></i> <strong class="title"> Assign Director</strong> </h3><br>
+
+
+<div class="panel custom-box">
+ 
+        <table class="table" style="text-align:left">
+            <tr style="color:#0084bd">
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Position)
+                </th>
+
+                <th>
+                    Name
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.JobNumber)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.UserEmail)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ImageJobNo)
+                </th>
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department.NameEn)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Position.NameEn)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstNameEn)             @Html.DisplayFor(modelItem => item.LastNameEn)
+
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserEmail)
+                    </td>
+                    @if (item.ImageJobNo != null)
+                    {
+                        <td>
+
+                            <a style="line-height:unset; align-content:initial" class="btn btn-success btn-xs" href="@Url.Action("Download", "Users", new { id = item.UserId }, Request.Url.Scheme)">
+                                Open Job Card
+                            </a>
+
+
+                        </td>
+
+                        <td>
+                            <a style="line-height:unset; align-content:initial" class="btn btn-success btn-xs" href="@Url.Action("AssignManager", "Departments", new { idUser = item.UserId, idDep = item.DepartmentId }, Request.Url.Scheme)">
+                                Assign
+                            </a>
+
+                        </td>
+                    }
+                </tr>
+            }
+
+        </table>

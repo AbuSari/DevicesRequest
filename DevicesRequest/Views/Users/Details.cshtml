@@ -1,170 +1,79 @@
 ﻿@model DevicesRequest.Models.User
 
 @{
-    Layout = null;
+
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
-    <div>
-        <h4>User</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Department.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Department.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Level.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Level.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Position.NameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Position.NameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstNameAr)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.FirstNameAr)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastNameAr)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastNameAr)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.FirstNameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.FirstNameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastNameEn)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastNameEn)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.JobNumber)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.JobNumber)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.RoomNo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.RoomNo)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Telephon)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Telephon)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Mobile)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Mobile)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UserEmail)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UserEmail)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CereatedBy)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CereatedBy)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CreatedDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CreatedDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateBy)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateBy)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.LastUpdateDate)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.LastUpdateDate)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.ImageJobNo)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.ImageJobNo)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Comment)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Comment)
-            </dd>
-    
-        </dl>
+<div class="row panel invoice-body">
+
+    <div class="col-md-6">
+        <h2><strong>@Html.DisplayFor(model => model.FirstNameEn) @Html.DisplayFor(model => model.LastNameEn)</strong></h2>
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-</body>
-</html>
+    <div class="col-md-6">
+        <br />
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-theme dropdown-toggle" data-toggle="dropdown">
+                Assign to Role <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                @foreach (var item in ViewBag.Roles)
+                {
+                    <li><a href="@Url.Action("AssignRole", "UserRoles", new {idRole = item.RoleId, idUser = @Model.UserId }, Request.Url.Scheme)">@item.NameEn</a></li>
+                }
+
+            </ul>
+        </div>
+    </div>
+
+    <br />
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="col-md-4 profile-text right-divider">
+            <br />
+            <h4><strong> @Html.DisplayFor(model => model.FirstNameEn) @Html.DisplayFor(model => model.LastNameEn)</strong></h4>
+            <h5><strong> @Html.DisplayFor(model => model.FirstNameAr) @Html.DisplayFor(model => model.LastNameAr)</strong></h5>
+            <p>
+                <strong>@Html.DisplayFor(model => model.Department.NameEn)</strong> <br />
+                <strong>@Html.DisplayFor(model => model.Department.NameAr)</strong> <br />
+            </p>
+            <p>
+                <strong>@Html.DisplayFor(model => model.Position.NameEn)</strong> <br />
+                <strong>@Html.DisplayFor(model => model.Position.NameAr)</strong> <br />
+            </p>
+            <br>
+        </div>
+        <div class="col-md-4 profile-text mt mb">
+            <div class="right-divider hidden-sm hidden-xs">
+                <h4>User Connect</h4>
+                <br />
+                <address>
+                    Email     : <strong>@Html.DisplayFor(model => model.UserEmail)</strong><br />
+                    Phone No. :  <strong>@Html.DisplayFor(model => model.Telephon)</strong><br />
+                    Mobile No. :  <strong>@Html.DisplayFor(model => model.Mobile)</strong><br />
+
+                </address>
+            </div>
+        </div>
+
+        <div class="col-md-4 profile-text mt mb">
+            <div class="right-divider hidden-sm hidden-xs">
+                <h4>Building Details</h4>
+                <br />
+                <h4><strong> @Html.DisplayFor(model => model.Level.Building.NameEn) </strong></h4>
+                <h5><strong> @Html.DisplayFor(model => model.Level.NameEn) </strong></h5>
+                <h5><strong> @Html.DisplayFor(model => model.RoomNo) </strong></h5>
+                <br>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+
+    </div>
+

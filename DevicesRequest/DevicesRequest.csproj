@@ -252,6 +252,14 @@
     <Compile Include="Migrations\201810041248536_add_[Required].Designer.cs">
       <DependentUpon>201810041248536_add_[Required].cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810070817220_Change_requredPosition01.cs" />
+    <Compile Include="Migrations\201810070817220_Change_requredPosition01.Designer.cs">
+      <DependentUpon>201810070817220_Change_requredPosition01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201810070818161_Change_requredPosition03.cs" />
+    <Compile Include="Migrations\201810070818161_Change_requredPosition03.Designer.cs">
+      <DependentUpon>201810070818161_Change_requredPosition03.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Building.cs" />
@@ -1292,6 +1300,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810041248536_add_[Required].resx">
       <DependentUpon>201810041248536_add_[Required].cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810070817220_Change_requredPosition01.resx">
+      <DependentUpon>201810070817220_Change_requredPosition01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810070818161_Change_requredPosition03.resx">
+      <DependentUpon>201810070818161_Change_requredPosition03.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

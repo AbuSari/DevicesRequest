@@ -23,7 +23,7 @@
             if (stauts == 0)
             {
                 context.RequestStatus.AddOrUpdate(x => x.RequestStatusId,
-               new Models.RequestStatu() { NameEn = "Need your Director Approval", NameAr = "تحتاج موافقة مديرك المباشر", StatusCode = "NDA",Color = "badge bg-warning", CreatedDate = DateTime.Now, Active = true },
+               new Models.RequestStatu() { NameEn = "Need your Director Approval", NameAr = "تحتاج موافقة مديرك المباشر", StatusCode = "NDA", Color = "badge bg-warning", CreatedDate = DateTime.Now, Active = true },
                new Models.RequestStatu() { NameEn = "Need IT Approval", NameAr = "تحتاج موافقة مدير تقنية المعلومات", StatusCode = "NITA", Color = "badge bg-warning", CreatedDate = DateTime.Now, Active = true },
                new Models.RequestStatu() { NameEn = "Need Teckenical Report", NameAr = "يحتاج تقرير فني", StatusCode = "NTR", Color = "badge bg-warning", CreatedDate = DateTime.Now, Active = true },
                new Models.RequestStatu() { NameEn = "Approval By your Director", NameAr = "تم قبول طلبك من مديرك المباشر", StatusCode = "ABD", Color = "", CreatedDate = DateTime.Now, Active = true },
@@ -116,6 +116,14 @@
                new Models.Role() { NameEn = "End User", NameAr = "مستخدم", CreatedBy = "System", CreatedDate = DateTime.Now, Active = true, }
                 );
             }
+
+            //var Users = context.Users.Count();
+            //if (Users == 0)
+            //{
+            //    context.Users.AddOrUpdate(x => x.UserId,
+            //   new Models.User() { FirstNameEn = "Admin", LastNameEn = "Admin", CereatedBy = "System", CreatedDate = DateTime.Now, UserEmail = "admin@admin.com" }
+            //   );
+            //}
         }
     }
 }

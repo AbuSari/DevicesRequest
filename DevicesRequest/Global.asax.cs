@@ -21,7 +21,7 @@ namespace DevicesRequest
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.Name;
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DevicesRequestDBContext>());
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<DevicesRequestDBContext>());
         }
     }
 }

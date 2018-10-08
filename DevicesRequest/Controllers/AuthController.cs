@@ -109,7 +109,8 @@ namespace DevicesRequest.Controllers
             {
                 User userNew = new User();
                 //userNew.JobNumber = Regex.Replace(model.UserID, "[kk]", "");
-                userNew.JobNumber = (Regex.Replace(model.UserID, "[kk]", ""));
+                //userNew.JobNumber = (Regex.Replace(model.UserID, "[kk]", ""));
+                userNew.JobNumber = model.UserID;
                 userNew.CreatedDate = DateTime.Today;
                 userNew.CereatedBy = "System";
                 userNew.FirstNameEn = model.UserID;
@@ -117,7 +118,8 @@ namespace DevicesRequest.Controllers
                 userNew.UserEmail = model.UserID + "@" + model.UserID + ".com";
                 UserRole UserRole = new UserRole
                 {
-                    RoleId = db.Roles.Where(r => r.NameEn == "End User").First().RoleId,
+                    //RoleId = db.Roles.Where(r => r.NameEn == "End User").FirstOrDefault().RoleId,
+                    RoleId = db.Roles.Where(r => r.NameEn == "Admin").FirstOrDefault().RoleId,
                     UserId = userNew.UserId,
                     CreatedBy = "System",
                     CreatedDate = DateTime.Today.ToString(),

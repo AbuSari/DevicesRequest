@@ -31,6 +31,8 @@ namespace DevicesRequest.Controllers
             || r.UserId == user.UserId && r.RequestStatu.StatusCode == "RWH"
             || r.UserId == user.UserId && r.RequestStatu.StatusCode == "ITS");
 
+            ViewBag.user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault(); 
+
             return View(requestItems.ToList());
         }
 

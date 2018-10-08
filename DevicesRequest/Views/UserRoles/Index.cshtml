@@ -3,15 +3,12 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
+<h3><i class="fa fa-list"></i> <strong class="title"> List Role Users</strong> </h3><br>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<div class="row panel invoice-body">
 
-    <table class="table ">
-        <tr>
+<div class="panel custom-box">
+    <table class="table" style="text-align:left">
+        <tr style="color:#0084bd">
             <th>
                 User Name
             </th>
@@ -46,7 +43,7 @@
                 </td>
                 <td>
                     @*@Html.DisplayFor(modelItem => item.CreatedDate)*@
-                    @Convert.ToDateTime(item.CreatedDate).ToString("dd/MM/yyyy")
+                    @*@Convert.ToDateTime(item.CreatedDate).ToString("dd/MM/yyyy")*@
 
                 </td>
 
@@ -54,10 +51,15 @@
                     @item.Active
                 </td>
                 <td>
+<<<<<<< HEAD
                     @Html.ActionLink("Edit", "Edit", new {  id=item.UserId  }) |
                     @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                     @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
                 </td>
+=======
+                    @Html.ActionLink(" ", "Edit", new { id = item.UserId }, new { @class = "btn btn-primary btn-xs fa fa-pencil tooltips", data_placement = "top", title = "Edit", @style = "line-height: unset" })
+                    </td>
+>>>>>>> 9fc27e86afbb5af99496d09c770722514f8fd4cb
             </tr>
         }
 

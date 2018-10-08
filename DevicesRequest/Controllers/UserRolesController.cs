@@ -18,7 +18,6 @@ namespace DevicesRequest.Controllers
         public ActionResult Index()
         {
             var userRoles = db.UserRoles.Include(u => u.Role).Include(u => u.User);
-            userRoles = userRoles.Where(ur => ur.Role.NameEn != "End User ");
             return View(userRoles.ToList());
         }
 
@@ -66,19 +65,19 @@ namespace DevicesRequest.Controllers
         }
 
         // GET: UserRoles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserRole userRole = db.UserRoles.Find(id);
+            UserRole userRole = db.UserRoles.Where(u => u.UserId == id).First();
             if (userRole == null)
             {
                 return HttpNotFound();
             }
             ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn", userRole.RoleId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr", userRole.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameEn", userRole.UserId);
             return View(userRole);
         }
 
@@ -91,12 +90,23 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userRole).State = EntityState.Modified;
+                UserRole OldUserRole = db.UserRoles.Where(u => u.UserId == userRole.UserId).First();
+                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
+
+                userRole.CreatedBy = OldUserRole.CreatedBy;
+                userRole.CreatedDate = OldUserRole.CreatedDate;
+                userRole.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
+                userRole.LastUpdateDate = DateTime.Now.ToString();
+                userRole.Active = OldUserRole.Active;
+
+                db.UserRoles.Remove(OldUserRole);
+                db.UserRoles.Add(userRole);
+                //db.Entry(userRole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
             ViewBag.RoleId = new SelectList(db.Roles, "RoleId", "NameEn", userRole.RoleId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameAr", userRole.UserId);
+            ViewBag.UserId = new SelectList(db.Users, "UserId", "FirstNameEn", userRole.UserId);
             return View(userRole);
         }
 

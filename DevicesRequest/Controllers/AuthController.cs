@@ -143,7 +143,7 @@ namespace DevicesRequest.Controllers
                 var ctx = Request.GetOwinContext();
                 var authManager = ctx.Authentication;
                 authManager.SignIn(identity);
-                if (user.FirstNameEn == null)
+                if (user.FirstNameAr == null)
                 {
                     return RedirectToAction("Edit", "Users", new { id = user.UserId });
 

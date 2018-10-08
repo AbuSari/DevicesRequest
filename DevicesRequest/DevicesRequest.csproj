@@ -252,6 +252,7 @@
     <Compile Include="Migrations\201810041248536_add_[Required].Designer.cs">
       <DependentUpon>201810041248536_add_[Required].cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Migrations\201810070817220_Change_requredPosition01.cs" />
     <Compile Include="Migrations\201810070817220_Change_requredPosition01.Designer.cs">
       <DependentUpon>201810070817220_Change_requredPosition01.cs</DependentUpon>
@@ -259,6 +260,11 @@
     <Compile Include="Migrations\201810070818161_Change_requredPosition03.cs" />
     <Compile Include="Migrations\201810070818161_Change_requredPosition03.Designer.cs">
       <DependentUpon>201810070818161_Change_requredPosition03.cs</DependentUpon>
+=======
+    <Compile Include="Migrations\201810070808493_data_change_requred.cs" />
+    <Compile Include="Migrations\201810070808493_data_change_requred.Designer.cs">
+      <DependentUpon>201810070808493_data_change_requred.cs</DependentUpon>
+>>>>>>> 9fc27e86afbb5af99496d09c770722514f8fd4cb
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -292,6 +298,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\._bootstrap.css" />
+    <Content Include="Content\assets\css\bootstrap.css" />
+    <Content Include="Content\assets\fonts\._glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\js\._bootstrap.min.js" />
+    <Content Include="Content\assets\js\._jquery.js" />
+    <Content Include="Content\assets\js\._jquery.unveilEffects.js" />
+    <Content Include="Content\assets\js\._respond.min.js" />
+    <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\jquery.js" />
+    <Content Include="Content\assets\js\jquery.unveilEffects.js" />
+    <Content Include="Content\assets\js\respond.min.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -300,6 +318,190 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\._bbpress.css" />
+    <Content Include="Content\css\._carousel.css" />
+    <Content Include="Content\css\._font-awesome.css" />
+    <Content Include="Content\css\._hoverex-all.css" />
+    <Content Include="Content\css\._jetmenu.css" />
+    <Content Include="Content\css\._prettyPhoto.css" />
+    <Content Include="Content\css\._style.css" />
+    <Content Include="Content\css\bbpress.css" />
+    <Content Include="Content\css\carousel.css" />
+    <Content Include="Content\css\colors\._asphalt.css" />
+    <Content Include="Content\css\colors\._blue.css" />
+    <Content Include="Content\css\colors\._brown.css" />
+    <Content Include="Content\css\colors\._mustard.css" />
+    <Content Include="Content\css\colors\._pomegranate.css" />
+    <Content Include="Content\css\colors\._turquoise.css" />
+    <Content Include="Content\css\colors\._yellow.css" />
+    <Content Include="Content\css\colors\asphalt.css" />
+    <Content Include="Content\css\colors\blue.css" />
+    <Content Include="Content\css\colors\brown.css" />
+    <Content Include="Content\css\colors\mustard.css" />
+    <Content Include="Content\css\colors\pomegranate.css" />
+    <Content Include="Content\css\colors\turquoise.css" />
+    <Content Include="Content\css\colors\yellow.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\hoverex-all.css" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\._btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\._btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\._contentPattern.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\._loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\._btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\._btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\._loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._default_thumb.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\default\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._sprite_next.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._sprite_prev.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._sprite_x.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\._sprite_y.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\css\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._contentPatternBottom.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._contentPatternLeft.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._contentPatternRight.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._contentPatternTop.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._default_thumbnail.gif" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\._btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\._btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\._loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\css\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\._btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\._btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\._sprite.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\css\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\css\jetmenu.css" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\demos\._demo_01.jpg" />
+    <Content Include="Content\demos\._flickr_01.jpg" />
+    <Content Include="Content\demos\._flickr_02.jpg" />
+    <Content Include="Content\demos\._flickr_03.jpg" />
+    <Content Include="Content\demos\._flickr_04.jpg" />
+    <Content Include="Content\demos\._flickr_05.jpg" />
+    <Content Include="Content\demos\._flickr_06.jpg" />
+    <Content Include="Content\demos\._flickr_07.jpg" />
+    <Content Include="Content\demos\._flickr_08.jpg" />
+    <Content Include="Content\demos\._item-single.png" />
+    <Content Include="Content\demos\._market_01.png" />
+    <Content Include="Content\demos\._market_02.png" />
+    <Content Include="Content\demos\._market_03.png" />
+    <Content Include="Content\demos\._market_04.png" />
+    <Content Include="Content\demos\._market_05.png" />
+    <Content Include="Content\demos\._market_06.png" />
+    <Content Include="Content\demos\._market_alone.png" />
+    <Content Include="Content\demos\._market_single_01.png" />
+    <Content Include="Content\demos\._office.png" />
+    <Content Include="Content\demos\._portfolio_01.jpg" />
+    <Content Include="Content\demos\._portfolio_02.jpg" />
+    <Content Include="Content\demos\._portfolio_03.jpg" />
+    <Content Include="Content\demos\._portfolio_04.jpg" />
+    <Content Include="Content\demos\._portfolio_05.jpg" />
+    <Content Include="Content\demos\._portfolio_06.jpg" />
+    <Content Include="Content\demos\._portfolio_07.jpg" />
+    <Content Include="Content\demos\._portfolio_08.jpg" />
+    <Content Include="Content\demos\._portfolio_09.jpg" />
+    <Content Include="Content\demos\._portfolio_10.jpg" />
+    <Content Include="Content\demos\._recent_post_01.png" />
+    <Content Include="Content\demos\._recent_post_02.png" />
+    <Content Include="Content\demos\._sliderbg_01.png" />
+    <Content Include="Content\demos\._sliderbg_02.png" />
+    <Content Include="Content\demos\._slider_01.png" />
+    <Content Include="Content\demos\._slider_02.png" />
+    <Content Include="Content\demos\._slides_01.jpg" />
+    <Content Include="Content\demos\._slides_02.jpg" />
+    <Content Include="Content\demos\._slides_03.jpg" />
+    <Content Include="Content\demos\._support.png" />
+    <Content Include="Content\demos\._team_01.png" />
+    <Content Include="Content\demos\._team_02.png" />
+    <Content Include="Content\demos\._team_03.png" />
+    <Content Include="Content\demos\._team_04.png" />
+    <Content Include="Content\demos\._team_05.png" />
+    <Content Include="Content\demos\._team_06.png" />
+    <Content Include="Content\demos\demo_01.jpg" />
+    <Content Include="Content\demos\flickr_01.jpg" />
+    <Content Include="Content\demos\flickr_02.jpg" />
+    <Content Include="Content\demos\flickr_03.jpg" />
+    <Content Include="Content\demos\flickr_04.jpg" />
+    <Content Include="Content\demos\flickr_05.jpg" />
+    <Content Include="Content\demos\flickr_06.jpg" />
+    <Content Include="Content\demos\flickr_07.jpg" />
+    <Content Include="Content\demos\flickr_08.jpg" />
+    <Content Include="Content\demos\item-single.png" />
+    <Content Include="Content\demos\market_01.png" />
+    <Content Include="Content\demos\market_02.png" />
+    <Content Include="Content\demos\market_03.png" />
+    <Content Include="Content\demos\market_04.png" />
+    <Content Include="Content\demos\market_05.png" />
+    <Content Include="Content\demos\market_06.png" />
+    <Content Include="Content\demos\market_alone.png" />
+    <Content Include="Content\demos\market_single_01.png" />
+    <Content Include="Content\demos\office.png" />
+    <Content Include="Content\demos\portfolio_01.jpg" />
+    <Content Include="Content\demos\portfolio_02.jpg" />
+    <Content Include="Content\demos\portfolio_03.jpg" />
+    <Content Include="Content\demos\portfolio_04.jpg" />
+    <Content Include="Content\demos\portfolio_05.jpg" />
+    <Content Include="Content\demos\portfolio_06.jpg" />
+    <Content Include="Content\demos\portfolio_07.jpg" />
+    <Content Include="Content\demos\portfolio_08.jpg" />
+    <Content Include="Content\demos\portfolio_09.jpg" />
+    <Content Include="Content\demos\portfolio_10.jpg" />
+    <Content Include="Content\demos\recent_post_01.png" />
+    <Content Include="Content\demos\recent_post_02.png" />
+    <Content Include="Content\demos\sliderbg_01.png" />
+    <Content Include="Content\demos\sliderbg_02.png" />
+    <Content Include="Content\demos\slider_01.png" />
+    <Content Include="Content\demos\slider_02.png" />
+    <Content Include="Content\demos\slides_01.jpg" />
+    <Content Include="Content\demos\slides_02.jpg" />
+    <Content Include="Content\demos\slides_03.jpg" />
+    <Content Include="Content\demos\support.png" />
+    <Content Include="Content\demos\team_01.png" />
+    <Content Include="Content\demos\team_02.png" />
+    <Content Include="Content\demos\team_03.png" />
+    <Content Include="Content\demos\team_04.png" />
+    <Content Include="Content\demos\team_05.png" />
+    <Content Include="Content\demos\team_06.png" />
+    <Content Include="Content\fonts\._fontawesome-webfont-v=4.0.3.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont-v=4.0.3.svg" />
     <Content Include="Content\img\._404.png" />
     <Content Include="Content\img\._500.png" />
     <Content Include="Content\img\._blog-bg.jpg" />
@@ -409,6 +611,44 @@
     <Content Include="Image\background.jpg" />
     <Content Include="Image\login-bg.jpg" />
     <Content Include="Image\Logo_KSU.png" />
+    <Content Include="js\._custom.js" />
+    <Content Include="js\._jetmenu.js" />
+    <Content Include="js\._jquery.animate-enhanced.min.js" />
+    <Content Include="js\._jquery.easypiechart.min.js" />
+    <Content Include="js\._jquery.gmap.js" />
+    <Content Include="js\._jquery.hoverdir.js" />
+    <Content Include="js\._jquery.hoverex.min.js" />
+    <Content Include="js\._jquery.isotope.min.js" />
+    <Content Include="js\._jquery.jigowatt.js" />
+    <Content Include="js\._jquery.mb.YTPlayer.js" />
+    <Content Include="js\._jquery.prettyPhoto.js" />
+    <Content Include="js\._modernizr.js" />
+    <Content Include="js\._owl.carousel.js" />
+    <Content Include="js\._retina-1.1.0.js" />
+    <Content Include="js\custom.js" />
+    <Content Include="js\jetmenu.js" />
+    <Content Include="js\jquery.animate-enhanced.min.js" />
+    <Content Include="js\jquery.easypiechart.min.js" />
+    <Content Include="js\jquery.gmap.js" />
+    <Content Include="js\jquery.hoverdir.js" />
+    <Content Include="js\jquery.hoverex.min.js" />
+    <Content Include="js\jquery.isotope.min.js" />
+    <Content Include="js\jquery.jigowatt.js" />
+    <Content Include="js\jquery.mb.YTPlayer.js" />
+    <Content Include="js\jquery.prettyPhoto.js" />
+    <Content Include="js\modernizr.js" />
+    <Content Include="js\owl.carousel.js" />
+    <Content Include="js\retina-1.1.0.js" />
+    <Content Include="layerslider\css\._blank.gif" />
+    <Content Include="layerslider\css\._layerslider.css" />
+    <Content Include="layerslider\css\blank.gif" />
+    <Content Include="layerslider\css\layerslider.css" />
+    <Content Include="layerslider\js\._greensock.js" />
+    <Content Include="layerslider\js\._layerslider.kreaturamedia.jquery.js" />
+    <Content Include="layerslider\js\._layerslider.transitions.js" />
+    <Content Include="layerslider\js\greensock.js" />
+    <Content Include="layerslider\js\layerslider.kreaturamedia.jquery.js" />
+    <Content Include="layerslider\js\layerslider.transitions.js" />
     <Content Include="Scripts\._advanced-form-components.js" />
     <Content Include="Scripts\._bootstrap-switch.js" />
     <Content Include="Scripts\._bootstrap.min.js" />
@@ -976,7 +1216,22 @@
     <Content Include="Scripts\gritter\js\.DS_Store" />
     <Content Include="Scripts\gritter\js\._.DS_Store" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\modernizr.js" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="Content\assets\fonts\._glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\fonts\._glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\fonts\._glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\._fontawesome-webfont-.eot" />
+    <Content Include="Content\fonts\._fontawesome-webfont-v=4.0.3.eot" />
+    <Content Include="Content\fonts\._fontawesome-webfont-v=4.0.3.ttf" />
+    <Content Include="Content\fonts\._fontawesome-webfont-v=4.0.3.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont-.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont-v=4.0.3.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont-v=4.0.3.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont-v=4.0.3.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\calendar-conf-events.js" />
     <Content Include="Scripts\chart-master\._Chart.js" />
@@ -1240,7 +1495,6 @@
     <Content Include="Views\UserRoles\Create.cshtml" />
     <Content Include="Views\UserRoles\Delete.cshtml" />
     <Content Include="Views\UserRoles\Details.cshtml" />
-    <Content Include="Views\UserRoles\Edit.cshtml" />
     <Content Include="Views\UserRoles\Index.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Departments\AssignDirector.cshtml" />
@@ -1257,6 +1511,7 @@
     <Content Include="Views\TreatmentHistories\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutPublic.cshtml" />
     <Content Include="Views\Shared\login.cshtml" />
+    <Content Include="Views\UserRoles\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1301,11 +1556,16 @@
     <EmbeddedResource Include="Migrations\201810041248536_add_[Required].resx">
       <DependentUpon>201810041248536_add_[Required].cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Migrations\201810070817220_Change_requredPosition01.resx">
       <DependentUpon>201810070817220_Change_requredPosition01.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810070818161_Change_requredPosition03.resx">
       <DependentUpon>201810070818161_Change_requredPosition03.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Migrations\201810070808493_data_change_requred.resx">
+      <DependentUpon>201810070808493_data_change_requred.cs</DependentUpon>
+>>>>>>> 9fc27e86afbb5af99496d09c770722514f8fd4cb
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

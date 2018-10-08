@@ -19,11 +19,11 @@ namespace DevicesRequest.Models
         public int ItemId { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Name En")]
+        [Display(Name = "NameEn")]
         public string NameEn { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Name Ar")]
+        [Display(Name ="Name Ar")]
         public string NameAr { get; set; }
 
         [StringLength(100)]
@@ -34,10 +34,10 @@ namespace DevicesRequest.Models
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Last Update By")]
+        [Display(Name ="Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Last Update Date")]
+        [Display(Name ="Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
         public bool? Active { get; set; }

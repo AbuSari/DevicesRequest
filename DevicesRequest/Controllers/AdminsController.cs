@@ -10,107 +10,107 @@ using DevicesRequest.Models;
 
 namespace DevicesRequest.Controllers
 {
-    public class PoRceivedsController : Controller
+    public class AdminsController : Controller
     {
         private DevicesRequestContext db = new DevicesRequestContext();
 
-        // GET: PoRceiveds
+        // GET: Admins
         public ActionResult Index()
         {
-            return View(db.PoRceiveds.ToList());
+            return View(db.Admins.ToList());
         }
 
-        // GET: PoRceiveds/Details/5
+        // GET: Admins/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PoRceived poRceived = db.PoRceiveds.Find(id);
-            if (poRceived == null)
+            Admin admin = db.Admins.Find(id);
+            if (admin == null)
             {
                 return HttpNotFound();
             }
-            return View(poRceived);
+            return View(admin);
         }
 
-        // GET: PoRceiveds/Create
+        // GET: Admins/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PoRceiveds/Create
+        // POST: Admins/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PoRceivedId,CompanyNameEn,CompanyNameAr,PoCode,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] PoRceived poRceived)
+        public ActionResult Create([Bind(Include = "AdminId,NameEn,NameAr,Email,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] Admin admin)
         {
             if (ModelState.IsValid)
             {
-                db.PoRceiveds.Add(poRceived);
+                db.Admins.Add(admin);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(poRceived);
+            return View(admin);
         }
 
-        // GET: PoRceiveds/Edit/5
+        // GET: Admins/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PoRceived poRceived = db.PoRceiveds.Find(id);
-            if (poRceived == null)
+            Admin admin = db.Admins.Find(id);
+            if (admin == null)
             {
                 return HttpNotFound();
             }
-            return View(poRceived);
+            return View(admin);
         }
 
-        // POST: PoRceiveds/Edit/5
+        // POST: Admins/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PoRceivedId,CompanyNameEn,CompanyNameAr,PoCode,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] PoRceived poRceived)
+        public ActionResult Edit([Bind(Include = "AdminId,NameEn,NameAr,Email,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate,Active")] Admin admin)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(poRceived).State = EntityState.Modified;
+                db.Entry(admin).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(poRceived);
+            return View(admin);
         }
 
-        // GET: PoRceiveds/Delete/5
+        // GET: Admins/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PoRceived poRceived = db.PoRceiveds.Find(id);
-            if (poRceived == null)
+            Admin admin = db.Admins.Find(id);
+            if (admin == null)
             {
                 return HttpNotFound();
             }
-            return View(poRceived);
+            return View(admin);
         }
 
-        // POST: PoRceiveds/Delete/5
+        // POST: Admins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PoRceived poRceived = db.PoRceiveds.Find(id);
-            db.PoRceiveds.Remove(poRceived);
+            Admin admin = db.Admins.Find(id);
+            db.Admins.Remove(admin);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

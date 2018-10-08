@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class BuildingsController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: Buildings
         public ActionResult Index()
@@ -50,13 +50,6 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(u =>  u.JobNumber == User.Identity.Name).FirstOrDefault();
-                
-                building.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
-                building.CreatedDate = DateTime.Now;
-                building.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                building.LastUpdateDate = DateTime.Now;
-
                 db.Buildings.Add(building);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,13 +82,6 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
-
-                building.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                building.LastUpdateDate = DateTime.Now;
-
-
                 db.Entry(building).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

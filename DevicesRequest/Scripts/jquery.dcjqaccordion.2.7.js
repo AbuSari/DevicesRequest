@@ -93,9 +93,9 @@
 					}
 
 					// Auto close sibling menus
-					//if(defaults.autoClose == true){
-					//	autoCloseAccordion($parentsLi, $parentsUl);
-					//}
+					if(defaults.autoClose == true){
+						autoCloseAccordion($parentsLi, $parentsUl);
+					}
 
 					if ($('> ul',$activeLi).is(':visible')){
 						$('ul',$activeLi).slideUp(defaults.speed);

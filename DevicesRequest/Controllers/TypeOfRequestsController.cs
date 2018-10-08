@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class TypeOfRequestsController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: TypeOfRequests
         public ActionResult Index()
@@ -50,13 +50,6 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(u => "kk" + u.JobNumber == User.Identity.Name).FirstOrDefault();
-
-                typeOfRequest.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
-                typeOfRequest.CreatedDate = DateTime.Now;
-                typeOfRequest.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                typeOfRequest.LastUpdateDate = DateTime.Now;
-
                 db.TypeOfRequests.Add(typeOfRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -89,11 +82,6 @@ namespace DevicesRequest.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(u => "kk" + u.JobNumber == User.Identity.Name).FirstOrDefault();
-
-                typeOfRequest.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                typeOfRequest.LastUpdateDate = DateTime.Now;
-
                 db.Entry(typeOfRequest).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

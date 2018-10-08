@@ -12,9 +12,7 @@ namespace DevicesRequest.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            Departments = new HashSet<Department>();
             RequestItems = new HashSet<RequestItem>();
-            UserRoles = new HashSet<UserRole>();
         }
 
         public int UserId { get; set; }
@@ -27,17 +25,14 @@ namespace DevicesRequest.Models
         [Display(Name = "Last Name Ar")]
         public string LastNameAr { get; set; }
 
-        [Required]
         [StringLength(30)]
-        [Display(Name = "First Name En")]
+        [Display(Name = "Last Name En")]
         public string FirstNameEn { get; set; }
 
-        [Required]
         [StringLength(30)]
         [Display(Name = "Last Name En")]
         public string LastNameEn { get; set; }
 
-        [Required]
         [StringLength(15)]
         [Display(Name = "Job Number")]
         public string JobNumber { get; set; }
@@ -48,7 +43,6 @@ namespace DevicesRequest.Models
         [Display(Name = "Department")]
         public int? DepartmentId { get; set; }
 
-        //[Required]
         [Display(Name = "Position")]
         public int? PositionId { get; set; }
 
@@ -64,34 +58,31 @@ namespace DevicesRequest.Models
         [Display(Name = "Mobile")]
         public string Mobile { get; set; }
 
-        [Required]
         [StringLength(100)]
-        [Display(Name = "Email")]
+        [Display(Name = "User Email")]
         public string UserEmail { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Cereated By")]
+        [Display(Name = "Director Email")]
+        public string DirectorEmail { get; set; }
+
+        [StringLength(100)]
+        [Display(Name = "Created By")]
         public string CereatedBy { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Last Update By")]
+        [Display(Name = "Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Last Update Date")]
+        [Display(Name = "Update Date")]
         public DateTime? LastUpdateDate { get; set; }
-
-        [Display(Name = "Image Job No")]
-        public string ImageJobNo { get; set; }
 
         [StringLength(500)]
         [Display(Name = "Comment")]
         public string Comment { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Department> Departments { get; set; }
 
         public virtual Department Department { get; set; }
 
@@ -101,12 +92,5 @@ namespace DevicesRequest.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestItem> RequestItems { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserRole> UserRoles { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TreatmentHistory> TreatmentHistories { get; set; }
-
     }
 }

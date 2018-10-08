@@ -12,7 +12,7 @@ namespace DevicesRequest.Controllers
 {
     public class ShipmentsController : Controller
     {
-        private DevicesRequestDBContext db = new DevicesRequestDBContext();
+        private DevicesRequestContext db = new DevicesRequestContext();
 
         // GET: Shipments
         public ActionResult Index()
@@ -49,36 +49,10 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ShipmentId,PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
+        public ActionResult Create([Bind(Include = "PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
-
-                Item item = db.Items.Find(shipment.ItemId);
-
-                int? NewItems = shipment.Quantity;
-
-                if (item.UnitsInStock != null && shipment.Quantity != null)
-                {
-                    NewItems = item.UnitsInStock + shipment.Quantity;
-                }
-                if(item.UnitsOnOrder == null)
-                {
-                    item.UnitsOnOrder = 0;
-                }
-
-                item.UnitsInStock = NewItems;
-
-                item.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                item.LastUpdateDate = DateTime.Now;
-                db.Entry(item).State = EntityState.Modified;
-
-                shipment.CreatedBy = user.FirstNameEn + " " + user.LastNameEn;
-                shipment.CreatedDate = DateTime.Now;
-                shipment.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                shipment.LastUpdateDate = DateTime.Now;
-
                 db.Shipments.Add(shipment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -111,15 +85,10 @@ namespace DevicesRequest.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ShipmentId,PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
+        public ActionResult Edit([Bind(Include = "PoRceivedId,ItemId,Quantity,CreatedBy,CreatedDate,LastUpdateBy,LastUpdateDate")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Where(u => u.JobNumber == User.Identity.Name).FirstOrDefault();
-
-                shipment.LastUpdateBy = user.FirstNameEn + " " + user.LastNameEn;
-                shipment.LastUpdateDate = DateTime.Now;
-
                 db.Entry(shipment).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

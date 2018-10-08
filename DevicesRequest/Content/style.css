@@ -233,12 +233,11 @@ ul.top-menu > li > .logout {
     width: 210px;
     height: 100%;
     position: fixed;
-    /*background: #fff;*/
-    background: #052838;
+    background: #1D5F7B;
 }
 
     #sidebar h5 {
-        color: #1D5F7B;
+        color: #f2f2f2;
         font-weight: 700;
     }
 
@@ -419,7 +418,6 @@ ul.sidebar-menu li {
     background: #22242a;
     border-bottom: 1px solid #393d46;
 }
-
 .blue-bg {
     background: #3498db;
     border-bottom: 1px solid #3498db;
@@ -981,7 +979,7 @@ PANELS CONFIGURATIONS
 
 .darkblue-panel {
     text-align: center;
-    background: #225165;
+    background: #444c57;
 }
 
     .darkblue-panel .darkblue-header {
@@ -2987,7 +2985,7 @@ ul.inbox-pagination {
     }
 
 .chat-room-head {
-    background: #5bc0de;
+    background: #4ECDC4;
     color: #FFFFFF;
     min-height: 70px;
     padding: 15px;

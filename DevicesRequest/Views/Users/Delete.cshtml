@@ -1,106 +1,169 @@
 ﻿@model DevicesRequest.Models.User
 
 @{
-
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Delete</h2>
 
-<div class="col-md-12 detailed alert alert-danger">
-    <h3 class="centered">User Details</h3>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>User</h4>
     <hr />
-    <div class="col-md-3 right-divider  mt">
-        <p>
-            <strong>Arabic Name </strong> <br>
-            @Html.DisplayFor(model => model.FirstNameAr)
-            @Html.DisplayFor(model => model.LastNameAr)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>English Name</strong> <br>
-            @Html.DisplayFor(model => model.FirstNameEn)
-            @Html.DisplayFor(model => model.LastNameEn)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.JobNumber)</strong> <br>
-            @Html.DisplayFor(model => model.JobNumber)
-            <br>
-        </p>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.NameEn)
+        </dt>
 
-    </div>
-    <div class="col-md-3 right-divider mt">
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.UserEmail)</strong> <br>
-            @Html.DisplayFor(model => model.UserEmail)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.Telephon)</strong> <br>
-            @Html.DisplayFor(model => model.Telephon)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.Mobile)</strong> <br>
-            @Html.DisplayFor(model => model.Mobile)
-            <br>
-        </p>
-    </div>
-    <div class="col-md-3 right-divider mt">
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.Department)</strong> <br>
+        <dd>
             @Html.DisplayFor(model => model.Department.NameEn)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.Level)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Level.NameEn)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.Level.NameEn)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.RoomNo)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Position.NameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Position.NameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstNameAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstNameAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastNameAr)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastNameAr)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstNameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstNameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastNameEn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastNameEn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.RoomNo)
-            <br>
-        </p>
-    </div>
-    <div class="col-md-3 right-divider mt">
+        </dd>
 
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.CreatedDate)</strong> <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.Telephon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telephon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DirectorEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DirectorEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CereatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CereatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.CreatedDate)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.LastUpdateBy)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.LastUpdateBy)
-            <br>
-        </p>
-        <br />
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.LastUpdateDate)</strong> <br>
-            <b>@Html.DisplayFor(model => model.LastUpdateDate)</b>
-            <br>
-        </p>
-    </div>
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        @Html.ActionLink(" ", "Index", new { id = Model.UserId }, new { @class = "btn btn-default btn-sm fa fa-angle-double-left tooltips", data_placement = "top", title = "Back", @style = "line-height: unset" })
-        <input type="submit" value="Delete" class="btn btn-danger btn-sm" />
-    </div>
-}
-
-

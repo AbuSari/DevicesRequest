@@ -25,36 +25,27 @@ namespace DevicesRequest.Models
         [Display(Name = "Name Ar")]
         public string NameAr { get; set; }
 
-        [StringLength(100)]
-        [Display(Name = "Color")]
-        public string Color { get; set; }
-
         [StringLength(10)]
         [Display(Name = "Status Code")]
         public string StatusCode { get; set; }
 
         [StringLength(100)]
         [Display(Name = "Created By")]
-        string CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         [Display(Name = "Created Date")]
         public DateTime? CreatedDate { get; set; }
 
         [StringLength(100)]
-        [Display(Name = "Last Update By")]
+        [Display(Name = "Update By")]
         public string LastUpdateBy { get; set; }
 
-        [Display(Name = "Last Update Date")]
+        [Display(Name = "Update Date")]
         public DateTime? LastUpdateDate { get; set; }
 
         public bool? Active { get; set; }
 
-        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestItem> RequestItems { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TreatmentHistory> TreatmentHistories { get; set; }
-
     }
 }

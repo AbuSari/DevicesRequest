@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <title>@ViewBag.Title - Devices Request </title>
+    <title>@ViewBag.Title - Request App</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -34,28 +34,28 @@
     <![endif]-->
 </head>
 
-<body @*style="background-image:url(../../Image/background.jpg)"*@>
+<body>
 
     <section id="container">
         <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
         <!--header start-->
-        <header class="header darkblue-panel">
+        <header class="header white-panel">
 
             <div class="sidebar-toggle-box">
-                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" style="color:#5bc0de"></div>
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
             </div>
             <!--logo start-->
 
-            <a href="index.html" class="logo"> <b style="color:white">Devices Request</b></a>
+            <a href="index.html" class="logo"> <b>Devices Request</b></a>
             <!--logo end-->
 
-            <div class="nav notify-row " id="top_menu"
+            <div class="nav notify-row " id="top_menu">
                 <!--  notification start -->
-                <ul class="nav top-menu" style="color:black">
+                <ul class="nav top-menu">
                     <!-- settings start -->
-                    @*<li class="dropdown">
+                    <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme">4</span>
@@ -121,10 +121,10 @@
                                 <a href="#">See All Tasks</a>
                             </li>
                         </ul>
-                    </li>*@
+                    </li>
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
-                    @*<li id="header_inbox_bar" class="dropdown">
+                    <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-envelope-o"></i>
                             <span class="badge bg-theme">5</span>
@@ -186,10 +186,10 @@
                                 <a href="index.html#">See all messages</a>
                             </li>
                         </ul>
-                    </li>*@
+                    </li>
                     <!-- inbox dropdown end -->
                     <!-- notification dropdown start-->
-                    @*<li id="header_notification_bar" class="dropdown">
+                    <li id="header_notification_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-bell-o"></i>
                             <span class="badge bg-warning">7</span>
@@ -231,7 +231,7 @@
                                 <a href="index.html#">See all notifications</a>
                             </li>
                         </ul>
-                    </li>*@
+                    </li>
                     <!-- notification dropdown end -->
                 </ul>
                 <!--  notification end -->
@@ -242,27 +242,25 @@
 
                 <!-- <li><a class="logout" href="login.html">Logout</a></li>-->
             </div>
-            @Html.Partial("_LoginPartial")
-
         </header>
         <!--header end-->
         <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
         <!--sidebar start-->
-        <aside>
+        <aside class="blue-bg">
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <br />
                 <br />
-                <ul class="sidebar-menu" id="nav-accordion" style="color:#1D5F7B">
+                <ul class="sidebar-menu" id="nav-accordion">
 
                     <p class="centered"><img src="~/Image/Logo_KSU.png" class="logo" height="80"></a></p>
-                    <h5 class="centered " style="color:white">@User.Identity.Name</h5>
+                    <h5 class="centered">@User.Identity.Name</h5>
 
 
                     <li class="mt">
-                        <a href="index.html">
+                        <a href="#">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
@@ -270,106 +268,74 @@
 
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-group"></i>
-                            <span>Management User </span>
+                            <i class="fa fa-cog"></i>
+                            <span>Managment System</span>
                         </a>
                         <ul class="sub">
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li>@Html.ActionLink("User", "Index", "Users")</li>
-                                <li>@Html.ActionLink("Role", "Index", "Roles")</li>
-                                <li>@Html.ActionLink("User Role", "Index", "UserRoles")</li>
-                                <li>@Html.ActionLink("Position", "Index", "Positions")</li>
-                            } @if (User.IsInRole("Admin") || User.IsInRole("Supervisor"))
-                            {
-                                <li>@Html.ActionLink("Assign Director", "AssignDirector", "Users")</li>
-                            }
+                          @*  <li>@Html.ActionLink("Role", "Index", "Role")</li>*@
+                            <li>@Html.ActionLink("Department", "Index", "Departments")</li>
+                            <li>@Html.ActionLink("Building", "Index", "Buildings")</li>
+                            <li>@Html.ActionLink("Level", "Index", "Levels")</li>
+                            <li>@Html.ActionLink("Position", "Index", "Positions")</li>
+                            <li>@Html.ActionLink("Request Status", "Index", "RequestStatus")</li>
+                            <li>@Html.ActionLink("User", "Index", "Users")</li>
+                            @*<li>@Html.ActionLink("Survey Question", "Index", "Survey_Question")</li>*@
+
                         </ul>
                     </li>
 
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-laptop"></i>
-                                <span>Managment System</span>
-                            </a>
-                            <ul class="sub">
-                                @*  <li>@Html.ActionLink("Role", "Index", "Role")</li>*@
-                                <li>@Html.ActionLink("Department", "Index", "Departments")</li>
-                                <li>@Html.ActionLink("Building", "Index", "Buildings")</li>
-                                <li>@Html.ActionLink("Level", "Index", "Levels")</li>
-                                <li>@Html.ActionLink("Status", "Index", "RequestStatus")</li>
-                                @*<li>@Html.ActionLink("Survey Question", "Index", "Survey_Question")</li>*@
 
-                            </ul>
-                        </li>
-                    }
-                    @*<li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-ticket"></i>
-                                <span>Management Request </span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Primanry File", "Index", "PrimaryFiles")</li>
-                                <li>@Html.ActionLink("Size", "Index", "Sizes")</li>
-                                <li>@Html.ActionLink("Category", "Index", "Categories")</li>
 
-                            </ul>
-                        </li>*@
-                    @if (User.IsInRole("Admin") || User.IsInRole("Supervisor"))
-                    {
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-truck"></i>
-                                <span>Management Items</span>
-                            </a>
-                            <ul class="sub">
-                                <li>@Html.ActionLink("Item", "Index", "Items")</li>
-                                <li>@Html.ActionLink("PoRceived", "Index", "PoRceiveds")</li>
-                                <li>@Html.ActionLink("Shipment", "Index", "Shipments")</li>
-                            </ul>
-                        </li>
-                    }
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-ticket"></i>
+                            <i class="fa fa-cog"></i>
+                            <span>Management Request </span>
+                        </a>
+                        <ul class="sub">
+                            <li>@Html.ActionLink("Primanry File", "Index", "PrimaryFiles")</li>
+                            <li>@Html.ActionLink("Size", "Index", "Sizes")</li>
+                            <li>@Html.ActionLink("Category", "Index", "Categories")</li>
+
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks"></i>
                             <span>Request</span>
                         </a>
                         <ul class="sub">
                             <li>@Html.ActionLink("Request", "Index", "RequestItems")</li>
-                            <li>@Html.ActionLink("Completed Request", "Completed", "RequestItems")</li>
+                           
+                                <li>@Html.ActionLink("Request Accept ", "ManagerAccept", new { is_approval = 1, Controller = "RequestModels" })</li>
+                                <li>@Html.ActionLink("Request Reject ", "ManagerAccept", new { is_approval = -1, Controller = "RequestModels" })</li>
+                                <li>@Html.ActionLink("Request need Approval", "NeedApprov", "RequestModels")</li>
 
-                            @if (User.IsInRole("IT Manager") || User.IsInRole("Supervisor") || User.IsInRole("IT Manager"))
-                            {
-                                <li>@Html.ActionLink("Need Treatment", "NeedTreatment", "RequestItems")</li>
-                                <li>@Html.ActionLink("Treatments Historiy", "Index", "TreatmentHistories")</li>
-                            }
-
+                            
                         </ul>
                     </li>
 
 
-                    @*<li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class="fa fa-th"></i>
-                                <span>Data Tables</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="basic_table.html">Basic Table</a></li>
-                                <li><a href="responsive_table.html">Responsive Table</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="javascript:;">
-                                <i class=" fa fa-bar-chart-o"></i>
-                                <span>Charts</span>
-                            </a>
-                            <ul class="sub">
-                                <li><a href="morris.html">Morris</a></li>
-                                <li><a href="chartjs.html">Chartjs</a></li>
-                            </ul>
-                        </li>*@
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-th"></i>
+                            <span>Data Tables</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="basic_table.html">Basic Table</a></li>
+                            <li><a href="responsive_table.html">Responsive Table</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class=" fa fa-bar-chart-o"></i>
+                            <span>Charts</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="morris.html">Morris</a></li>
+                            <li><a href="chartjs.html">Chartjs</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <!-- sidebar menu end-->
@@ -380,7 +346,7 @@
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
         <!--main content start-->
-        <section id="main-content" style="margin-left:210px; ">
+        <section id="main-content" style="margin-left:210px">
             <section class="wrapper">
                 @if (TempData["message"] != null)
                 {
@@ -395,9 +361,10 @@
                     </div>
                 }
 
-                <div class="invoice-body">
-                    @RenderBody()
-                </div>
+                    <div style="padding:3%">
+                        @RenderBody()
+
+                    </div>
 
 
             </section>
@@ -452,7 +419,7 @@
     <!--script for this page-->
     <script src="~/Scripts/sparkline-chart.js"></script>
     <script src="~/Scripts/zabuto_calendar.js"></script>
-    <script src="~/Scripts/form-component.js"></script>
+
 
 
     @*<script type="text/javascript">
@@ -475,6 +442,48 @@
                 return false;
             });
         </script>*@
+
+    <script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({html: true, trigger: "manual"});
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+
+            $("#my-calendar").zabuto_calendar({
+                action: function () {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function () {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [
+                    {type: "text", label: "Special event", badge: "00"},
+                    {type: "block", label: "Regular event", }
+                ]
+            });
+        });
+
+
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+    <script>
+        setTimeout(function () {
+            $('#timeAlert').fadeOut(300);
+        }, 2000);
+
+                                            //$("#timeAlert").hide('slideUp');
+    </script>
 
 
 </body>

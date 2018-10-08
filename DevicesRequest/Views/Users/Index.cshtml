@@ -4,70 +4,133 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h3><i class="fa fa-list"></i> <strong class="title"> List Users</strong> </h3><br>
-<a class="btn btn-info btn-sm " href="@Url.Action("Create", "Users")"><i class="fa fa-plus"></i> Create User</a>
 
+<h2><i class="fa fa-tasks"></i> List of User</h2>
 
-<div class="panel custom-box">
-    <table class="table" style="text-align:left">
-        <tr style="color:#0084bd">
-            <th>
-                @Html.DisplayNameFor(model => model.Department)
-            </th>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Position.NameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstNameAr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastNameAr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstNameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastNameEn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telephon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DirectorEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CereatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th></th>
+    </tr>
 
-            <th>
-                @Html.DisplayNameFor(model => model.Position)
-            </th>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position.NameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstNameAr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastNameAr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstNameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastNameEn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JobNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telephon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DirectorEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CereatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdateBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdateDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserId })
+        </td>
+    </tr>
+}
 
-            <th>
-                @Html.DisplayNameFor(model => model.FirstNameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastNameEn)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JobNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telephon)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Department.NameEn)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Position.NameEn)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstNameEn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastNameEn)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.JobNumber)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telephon)
-                </td>
-
-
-                <td>
-                    @Html.ActionLink(" ", "Edit", new { id = item.UserId }, new { @class = "btn btn-primary btn-xs fa fa-pencil tooltips", data_placement = "top", title = "Edit", @style = "line-height: unset" })
-                    @Html.ActionLink(" ", "Details", new { id = item.UserId }, new { @class = "btn btn-warning btn-xs fa fa-folder-open-o tooltips", data_placement = "top", title = "Details", @style = "line-height: unset" })
-                    @Html.ActionLink(" ", "Delete", new { id = item.UserId }, new { @class = "btn btn-danger btn-xs fa fa-trash-o tooltips", data_placement = "top", title = "Delete", @style = "line-height: unset" })
-                </td>
-            </tr>
-        }
-
-    </table>
-
-</div>
+</table>

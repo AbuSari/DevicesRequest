@@ -2,71 +2,82 @@
 
 @{
     ViewBag.Title = "Details";
-
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="col-md-12 detailed alert alert-warning">
-    <h3 class="centered">Item Details</h3>
+
+<h2>Details</h2>
+
+<div>
+    <h4>PoRceived</h4>
     <hr />
-    <div class="col-md-4 right-divider  mt">
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.CompanyNameEn)</strong> <br>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyNameEn)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.CompanyNameEn)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.CompanyNameAr)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyNameAr)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.CompanyNameAr)
-            <br>
-        </p>
+        </dd>
 
-    </div>
-    <div class="col-md-4 right-divider mt">
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.PoCode)</strong> <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.PoCode)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.PoCode)
-            <br>
-        </p>
-        <br>
-        @*<p>
-            <strong>@Html.DisplayNameFor(model => model.UnitsOnOrder)</strong> <br>
-            @Html.DisplayFor(model => model.UnitsOnOrder)
-            <br>
-        </p>*@
-        <br />
+        </dd>
 
-    </div>
-    <div class="col-md-4 right-divider mt">
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.CreatedBy)</strong> <br>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.CreatedBy)
-            <br>
-        </p>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.CreatedDate)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.CreatedDate)
-            <br>
-        </p>
-        <br>
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.LastUpdateBy)</strong> <br>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateBy)
+        </dt>
+
+        <dd>
             @Html.DisplayFor(model => model.LastUpdateBy)
-            <br>
-        </p>
-        <br />
-        <p>
-            <strong>@Html.DisplayNameFor(model => model.LastUpdateDate)</strong> <br>
-            <b>@Html.DisplayFor(model => model.LastUpdateDate)</b>
-            <br>
-        </p>
-    </div>
+        </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+    </dl>
 </div>
-
 <p>
-    @Html.ActionLink(" ", "Index", new { id = Model.PoRceivedId }, new { @class = "btn btn-default btn-sm fa fa-angle-double-left tooltips", data_placement = "top", title = "Back", @style = "line-height: unset" })
-    @Html.ActionLink(" ", "Edit", new { id = Model.PoRceivedId }, new { @class = "btn btn-primary btn-sm fa fa-pencil tooltips", data_placement = "top", title = "Edit", @style = "line-height: unset" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PoRceivedId }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
-
-

@@ -9,12 +9,10 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DevicesRequest.Models;
-using System.DirectoryServices;
 
 namespace DevicesRequest.Controllers
 {
-    //[Authorize]
-    [AllowAnonymous]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;

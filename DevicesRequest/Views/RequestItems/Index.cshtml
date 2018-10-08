@@ -2,7 +2,15 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (User.IsInRole("End User"))
+    {
+        Layout = "~/Views/Shared/_LayoutPublic.cshtml";
+
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <h3><i class="fa fa-list"></i> <strong class="title"> List Requests</strong> </h3><br>

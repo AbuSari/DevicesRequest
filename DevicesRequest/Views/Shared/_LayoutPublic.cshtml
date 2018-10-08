@@ -50,29 +50,23 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 title-area">
                     <div class="site-title" id="title">
                         <a>
-                            <h4>QUESTION<span>BANK</span></h4>
+                            <h4>Devices<span>REQUEST</span></h4>
                         </a>
                     </div>
                 </div><!-- title area -->
                 <div class="col-lg-9 col-md-12 col-sm-12">
                     <div id="nav" class="right">
-                        <div class="container clearfix">
+                        <div class="container clearfix" style="width:auto">
                             <ul id="jetmenu" class="jetmenu blue">
                                 <li class="active">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                               @* <li>@Html.ActionLink("About", "About", "Home")</li>*@
-                                @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                                <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-
-                                @*<ul class="dropdown">
-                                        <li><a href="index.html">Home - Shop Version</a></li>
-                                        <li><a href="index2.html">Home - Agency Version</a></li>
-                                        <li><a href="index3.html">Home - Business Version</a></li>
-                                    </ul>*@
-
-                                <li>@Html.ActionLink("Subjects", "Index", "Subjects")</li>
-                                <li>@Html.ActionLink("Questions", "Index", "Questions")</li>
-                                <li>@Html.Partial("_LoginPartial")</li>
+                                <li>@Html.ActionLink("Active Request", "Index", "RequestItems")</li>
+                                <li>@Html.ActionLink("New Request", "Create", "RequestItems")</li>
+                                @if (User.IsInRole("End User") && ViewBag.user.Position.NameEn == "Director")
+                                {
+                                    <li>@Html.ActionLink("Need Treatment", "NeedTreatment", "RequestItems")</li>
+                                    <li>@Html.ActionLink("Treatments Historiy", "Index", "TreatmentHistories")</li>
+                                }
+                                <li class="pull-right">@Html.Partial("_LoginPartial")</li>
 
                                 </li>
 
@@ -225,54 +219,44 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="widget col-lg-3 col-md-3 col-sm-12">
-                <h4 class="title">About us</h4>
-                <p>This system belongs to King Saud University -  College of Medicine</p>
-                @*<a class="button small" href="#">read more</a>*@
-            </div><!-- end widget -->
+
             @*<div class="widget col-lg-3 col-md-3 col-sm-12">
-                <h4 class="title">Recent Posts</h4>
-                <ul class="recent_posts">
-                    <li>
-                        <a href="home1.html#">
-                            <img src="demos/recent_post_01.png" alt="" />Our New Dashboard Is Here
-                        </a>
-                        <a class="readmore" href="#">read more</a>
-                    </li>
-                    <li>
-                        <a href="home1.html#">
-                            <img src="demos/recent_post_02.png" alt="" />Design Is In The Air
-                        </a>
-                        <a class="readmore" href="#">read more</a>
-                    </li>
-                </ul><!-- recent posts -->
-            </div><!-- end widget -->*@
+                    <h4 class="title">Recent Posts</h4>
+                    <ul class="recent_posts">
+                        <li>
+                            <a href="home1.html#">
+                                <img src="demos/recent_post_01.png" alt="" />Our New Dashboard Is Here
+                            </a>
+                            <a class="readmore" href="#">read more</a>
+                        </li>
+                        <li>
+                            <a href="home1.html#">
+                                <img src="demos/recent_post_02.png" alt="" />Design Is In The Air
+                            </a>
+                            <a class="readmore" href="#">read more</a>
+                        </li>
+                    </ul><!-- recent posts -->
+                </div><!-- end widget -->*@
             @*<div class="widget col-lg-3 col-md-3 col-sm-12">
-                <h4 class="title">Get In Touch</h4>
-                <ul class="contact_details">
-                    <li><i class="fa fa-envelope-o"></i> info@yoursite.com</li>
-                    <li><i class="fa fa-phone-square"></i> +34 5565 6555</li>
-                    <li><i class="fa fa-home"></i> Some Fine Address, 887, Madrid, Spain.</li>
-                    <li><a href="#"><i class="fa fa-map-marker"></i> View large map</a></li>
-                </ul><!-- contact_details -->
-            </div><!-- end widget -->*@
+                    <h4 class="title">Get In Touch</h4>
+                    <ul class="contact_details">
+                        <li><i class="fa fa-envelope-o"></i> info@yoursite.com</li>
+                        <li><i class="fa fa-phone-square"></i> +34 5565 6555</li>
+                        <li><i class="fa fa-home"></i> Some Fine Address, 887, Madrid, Spain.</li>
+                        <li><a href="#"><i class="fa fa-map-marker"></i> View large map</a></li>
+                    </ul><!-- contact_details -->
+                </div><!-- end widget -->*@
         </div><!-- end container -->
 
         <div class="copyrights">
             <div class="container">
                 <div class="col-lg-6 col-md-6 col-sm-12 columns">
-                    <p>Copyright © 2018 - All rights reserved. Designed by <a title="Bootstrap Themes" href="#">IT of  King Saud University - Medical City </a></p>
+                    <p>Copyright © @DateTime.Now.Year - All rights reserved. Designed by <a title="Bootstrap Themes" href="#">IT of  King Saud University - Medical City </a></p>
                 </div><!-- end widget -->
                 <div class="col-lg-6 col-md-6 col-sm-12 columns text-right">
                     <div class="footer-menu right">
                         <ul class="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                         @*   <li>@Html.ActionLink("About", "About", "Home")</li>*@
-                         @*   <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
-                            <li>@Html.ActionLink("Courses", "Index", "Courses")</li>
-
-                            <li>@Html.ActionLink("Subjects", "Index", "Subjects")</li>
-                            <li>@Html.ActionLink("Questions", "Search", "Questions")</li>
+                           
                         </ul>
                     </div>
                 </div><!-- end large-6 -->

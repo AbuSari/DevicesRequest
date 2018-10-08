@@ -48,7 +48,7 @@ namespace DevicesRequest.Models
         [Display(Name = "Department")]
         public int? DepartmentId { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Position")]
         public int? PositionId { get; set; }
 
